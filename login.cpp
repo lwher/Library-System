@@ -7,8 +7,8 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
     setWindowFlags(Qt::FramelessWindowHint);
-//    this->setAttribute(Qt::WA_TranslucentBackground, true);
 }
 
 login::~login()
@@ -18,15 +18,31 @@ login::~login()
 
 void login::on_log_but_clicked()
 {
-
+    User tem;
+    if(search_user_id(tem, ui -> id_edit -> text()) == 0)
+    {
+        if(make_password(ui -> key_edit -> text()) != tem.key)
+            warning("Wrong key");
+        else
+        {
+            root = tem ;
+            if(root.level > 0)
+                event_window() -> show();
+            else
+                common_user_window() -> show();
+            close();
+        }
+    }
+    else
+        warning("Id doesn't exist");
 }
 
 void login::on_exit_but_clicked()
 {
-    close();
+   close();
 }
 
 void login::on_reg_but_clicked()
 {
-    regist_window.show();
+    regist_window() -> show();
 }

@@ -14,38 +14,38 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         login.cpp \
-    administer.cpp \
     regist.cpp \
     class.cpp \
-    book_imformation.cpp \
-    user_imformation.cpp \
-    event_imformation.cpp \
-    common_user.cpp \
+    book_information.cpp \
+    user_information.cpp \
+    event_information.cpp \
     modify.cpp \
-    my_line_edit.cpp \
-    library.cpp \
-    encryption.cpp
+    encryption.cpp \
+    book_database.cpp \
+    user_database.cpp \
+    event_database.cpp \
+    number_datebase.cpp \
+    common_user.cpp
 
 HEADERS  += login.h \
     class.h \
-    administer.h \
     regist.h \
-    book_imformation.h \
-    user_imformation.h \
-    event_imformation.h \
-    common_user.h \
+    book_information.h \
+    user_information.h \
+    event_information.h \
     modify.h \
-    my_line_edit.h \
-    library.h
+    book.h \
+    user.h \
+    event.h \
+    common_user.h
 
 FORMS    += login.ui \
-    administer.ui \
     regist.ui \
-    book_imformation.ui \
-    user_imformation.ui \
-    event_imformation.ui \
-    common_user.ui \
-    modify.ui
+    book_information.ui \
+    user_information.ui \
+    event_information.ui \
+    modify.ui \
+    common_user.ui
 
 RESOURCES += \
     resource.qrc

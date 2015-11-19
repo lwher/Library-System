@@ -15,6 +15,11 @@ public:
     explicit modify(QWidget *parent = 0);
     ~modify();
 
+private slots:
+    void on_submit_but_clicked();
+
+    void on_exit_but_clicked();
+
 private:
     Ui::modify *ui;
 };

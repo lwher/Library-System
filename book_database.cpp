@@ -3,14 +3,16 @@
 int book_insert(Book book)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/book.db");
+    db.setDatabaseName("./data/data.db");
     if(!db.open())
-        return warning("can't find book.db!", 2);
+        return warning("can't find data.db!", 2);
     QSqlQuery query;
     query.prepare
     (
         "insert into books " "values ( "
         ":id, "
+        ":IBSN, "
+        ":level, "
         ":name, "
         ":author, "
         ":press, "
@@ -19,6 +21,8 @@ int book_insert(Book book)
         ":left)"
     );
     query.bindValue(":id", book.id);
+    query.bindValue(":IBSN", book.IBSN);
+    query.bindValue(":level", book.level);
     query.bindValue(":name", book.name);
     query.bindValue(":author", book.author);
     query.bindValue(":press", book.press);
@@ -33,9 +37,9 @@ int book_insert(Book book)
 int book_delete(QString id)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/book.db");
+    db.setDatabaseName("./data/data.db");
     if(!db.open())
-        return warning("can't find book.db!", 2);
+        return warning("can't find data.db!", 2);
     QSqlQuery query;
     query.prepare("delete from books where id = :id");
     query.bindValue(":id", id);
@@ -47,13 +51,15 @@ int book_delete(QString id)
 int book_modify(Book book)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/book.db");
+    db.setDatabaseName("./data/data.db");
     if(!db.open())
-        return warning("can't find book.db!", 2);
+        return warning("can't find data.db!", 2);
     QSqlQuery query;
     query.prepare
     (
         "update books set "
+        "IBSN = :IBSN, "
+        "level = :level, "
         "name = :name, "
         "author = :author, "
         "press = :press, "
@@ -63,6 +69,8 @@ int book_modify(Book book)
         "where id = :id"
     );
     query.bindValue(":id", book.id);
+    query.bindValue(":IBSN", book.IBSN);
+    query.bindValue(":level", book.level);
     query.bindValue(":name", book.name);
     query.bindValue(":author", book.author);
     query.bindValue(":press", book.press);
@@ -79,11 +87,11 @@ int search_book_id(Book &book, QString book_id)
     if(book_id == "")
         return warning("Please input id", 1);
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/book.db");
+    db.setDatabaseName("./data/data.db");
     if(!db.open())
-        return warning("can't find book.db!", 2);
+        return warning("can't find data.db!", 2);
 
-    enum type{id, name, author, press, intro, total,left};
+    enum type{id, IBSN, level, name, author, press, intro, total,left};
     QSqlQuery query;
     query.prepare("select * from books where id = :id");
     query.bindValue(":id", book_id);
@@ -93,6 +101,8 @@ int search_book_id(Book &book, QString book_id)
     while(query.next())
     {
         book.id = query.value(id).toString();
+        book.IBSN = query.value(IBSN).toString();
+        book.level = query.value(level).toInt();
         book.name = query.value(name).toString();
         book.author = query.value(author).toString();
         book.press = query.value(press).toString();
@@ -108,13 +118,13 @@ int search_book_id(Book &book, QString book_id)
 int book_search(QVector<Book> &book, QString str, int flag)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/book.db");
+    db.setDatabaseName("./data/data.db");
     if(!db.open())
-        return warning("Can't find book.db!", 2);
+        return warning("Can't find data.db!", 2);
 
     Book tem;
     book.clear();
-    enum type{id, name, author, press, intro, total,left};
+    enum type{id, IBSN, level, name, author, press, intro, total,left};
 
     for(int i = str.size() - 1; i >= 0; i--)
         if(str[i] == QChar(' '))
@@ -147,6 +157,8 @@ int book_search(QVector<Book> &book, QString str, int flag)
     while (query.next())
     {
         tem.id = query.value(id).toString();
+        tem.IBSN = query.value(IBSN).toString();
+        tem.level = query.value(level).toInt();
         tem.name = query.value(name).toString();
         tem.author = query.value(author).toString();
         tem.press = query.value(press).toString();

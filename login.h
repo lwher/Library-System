@@ -2,9 +2,6 @@
 #define LOGIN_H
 
 #include <QMainWindow>
-#include "administer.h"
-#include "regist.h"
-#include "common_user.h"
 namespace Ui {
 class login;
 }
@@ -26,9 +23,6 @@ private slots:
 
 private:
     Ui::login *ui;
-    administer admin_window;
-    regist regist_window;
-    common_user user_window;
 };
 
 #endif // LOGIN_H

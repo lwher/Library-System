@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <string>
 #include <class.h>
+#include <QString>
 using namespace std;
 // Warning, the length of string can't excess maxlen.
 #define maxlen 1000000
@@ -90,7 +91,7 @@ static const ull K[80] = {
 
 void sha_512(char *digest, char *str) {
     ull w[80], H[8];
-    uint orilen = strlen(str);
+    uint orilen = uint(strlen(str));
     uint chunks_count = (orilen+17)/128;
     if( (orilen+17)%128!=0 ) ++chunks_count;
     ull total_count = orilen * 8;
@@ -153,10 +154,11 @@ void sha_512(char *digest, char *str) {
     delete[] filldata;
 }
 
-string make_password(string P){
+QString make_password(QString PP){
+    string P = PP.toStdString();
     char digest[129];
     memset(instr, '\0', sizeof(instr));
-    int L = P.size();
+    int L = int(P.size());
     for(int i = 0; i < L; i++){
         instr[i] = P[i];
     }
@@ -165,6 +167,6 @@ string make_password(string P){
     for(int i = 0; i < 128; i++){
         Res += digest[i];
     }
-    return Res;
+    return QString::fromStdString(Res);
 }
 

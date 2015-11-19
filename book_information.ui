@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>990</width>
+    <width>1175</width>
     <height>684</height>
    </rect>
   </property>
@@ -17,17 +17,17 @@
    <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>679</x>
-      <y>99</y>
-      <width>251</width>
+      <x>810</x>
+      <y>90</y>
+      <width>247</width>
       <height>501</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="9" column="1">
-      <widget class="QLineEdit" name="total_edit"/>
+     <item row="10" column="1">
+      <widget class="QTextEdit" name="intro_edit"/>
      </item>
-     <item row="14" column="0" colspan="2">
+     <item row="19" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <spacer name="horizontalSpacer">
@@ -51,31 +51,24 @@
        </item>
       </layout>
      </item>
-     <item row="6" column="0">
+     <item row="9" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
         <string>出版社</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
+     <item row="8" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
         <string>作者</string>
        </property>
       </widget>
      </item>
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>藏书量</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
+     <item row="8" column="1">
       <widget class="QLineEdit" name="author_edit"/>
      </item>
-     <item row="12" column="0" colspan="2">
+     <item row="17" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="modify_but">
@@ -100,11 +93,8 @@
        </item>
       </layout>
      </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="name_edit"/>
-     </item>
      <item row="7" column="1">
-      <widget class="QTextEdit" name="intro_edit"/>
+      <widget class="QLineEdit" name="name_edit"/>
      </item>
      <item row="0" column="0" colspan="2">
       <layout class="QGridLayout" name="gridLayout">
@@ -158,31 +148,21 @@
        </item>
       </layout>
      </item>
-     <item row="7" column="0">
+     <item row="10" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
         <string>简介</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
+     <item row="7" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
         <string>书名</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
-      <widget class="QLineEdit" name="left_edit"/>
-     </item>
-     <item row="10" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>剩余量</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
+     <item row="9" column="1">
       <widget class="QLineEdit" name="press_edit"/>
      </item>
      <item row="1" column="0">
@@ -192,7 +172,7 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="3" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
         <spacer name="horizontalSpacer_2">
@@ -216,18 +196,62 @@
        </item>
       </layout>
      </item>
-     <item row="3" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>书号</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="6" column="1">
       <widget class="QLineEdit" name="id_edit"/>
      </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="search_id_edit"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="IBSN_edit"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>IBSN</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>藏书量</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="total_edit"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>剩余量</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="left_edit"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>等级</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="level_edit"/>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
@@ -237,9 +261,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>100</y>
-      <width>601</width>
+      <x>0</x>
+      <y>90</y>
+      <width>801</width>
       <height>491</height>
      </rect>
     </property>
@@ -261,6 +285,16 @@
     <column>
      <property name="text">
       <string>书号</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>IBSN</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>等级</string>
      </property>
     </column>
     <column>

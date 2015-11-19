@@ -52,13 +52,6 @@
        </item>
       </layout>
      </item>
-     <item row="8" column="0">
-      <widget class="QPushButton" name="return_but">
-       <property name="text">
-        <string>归还</string>
-       </property>
-      </widget>
-     </item>
      <item row="10" column="1">
       <spacer name="verticalSpacer">
        <property name="orientation">
@@ -140,13 +133,6 @@
        </item>
       </layout>
      </item>
-     <item row="8" column="1">
-      <widget class="QPushButton" name="delete_but">
-       <property name="text">
-        <string>删除</string>
-       </property>
-      </widget>
-     </item>
      <item row="15" column="1">
       <widget class="QPushButton" name="exit_but">
        <property name="text">
@@ -207,14 +193,21 @@
        </property>
       </widget>
      </item>
+     <item row="8" column="0" colspan="2">
+      <widget class="QPushButton" name="return_but">
+       <property name="text">
+        <string>归还</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QTableWidget" name="event_table">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>20</x>
       <y>60</y>
-      <width>711</width>
+      <width>741</width>
       <height>501</height>
      </rect>
     </property>

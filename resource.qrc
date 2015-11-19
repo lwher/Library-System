@@ -1,25 +1,7 @@
 <RCC>
-    <qresource prefix="/new/prefix">
-        <file>picture/6c18c0a714786d7e0e7e101a451e2cd5.jpg</file>
-        <file>picture/5968675d5142643271ede636fe455f7f.png</file>
-        <file>picture/25873973930abc25afef39b436f5ebe7.jpg</file>
-        <file>picture/1348560838811.jpg</file>
-        <file>picture/1348561926227.jpg</file>
-        <file>picture/1348562025929.jpg</file>
-        <file>picture/1348562043896.jpg</file>
-        <file>picture/1348562092326.jpg</file>
-        <file>picture/1348666168860.jpg</file>
-        <file>picture/1348666318503.jpg</file>
-        <file>picture/1353935406757.jpg</file>
-        <file>picture/1353935425627.jpg</file>
-        <file>picture/1353935441813.jpg</file>
-        <file>picture/1353935481222.jpg</file>
-        <file>picture/1366613121538.jpg</file>
-        <file>picture/1394779842610.jpg</file>
-        <file>picture/a9178dcabbeca5d15b0cad82ff49ff22 (1).jpg</file>
-        <file>picture/ac6b798f52133af01480ad9208f5eaea.jpg</file>
-        <file>picture/aca6d2f89b011ad80644d6baf8238d6f.jpg</file>
-        <file>picture/ecf9c7cd5cb4fc6d33d137d8ce21017d.png</file>
-        <file>picture/login_background.jpg</file>
+    <qresource prefix="/new/prefix1">
+        <file>picture/注册.png</file>
+        <file>picture/登录.png</file>
+        <file>picture/修改用户信息.png</file>
     </qresource>
 </RCC>
