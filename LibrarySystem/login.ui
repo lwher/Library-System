@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>login</class>
+ <widget class="QMainWindow" name="login">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>892</width>
+    <height>628</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>login</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="exit_but">
+    <property name="geometry">
+     <rect>
+      <x>573</x>
+      <y>449</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>退出</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>233</x>
+      <y>122</y>
+      <width>451</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/new/prefix1/picture/登录.png);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="id_edit">
+    <property name="geometry">
+     <rect>
+      <x>389</x>
+      <y>289</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="log_but">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>392</y>
+      <width>81</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 9pt &quot;微软雅黑&quot;;</string>
+    </property>
+    <property name="text">
+     <string>登录</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="key_edit">
+    <property name="geometry">
+     <rect>
+      <x>389</x>
+      <y>330</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reg_but">
+    <property name="geometry">
+     <rect>
+      <x>453</x>
+      <y>392</y>
+      <width>81</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 9pt &quot;微软雅黑&quot;;
+image: url(:/new/prefix1/picture/注册.png);</string>
+    </property>
+    <property name="text">
+     <string>注册</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>351</x>
+      <y>289</y>
+      <width>32</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 9pt &quot;微软雅黑&quot;;</string>
+    </property>
+    <property name="text">
+     <string> 帐号 </string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="auto_login_check">
+    <property name="geometry">
+     <rect>
+      <x>473</x>
+      <y>370</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>自动登录</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>351</x>
+      <y>330</y>
+      <width>32</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 9pt &quot;微软雅黑&quot;;</string>
+    </property>
+    <property name="text">
+     <string> 密码 </string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="keep_password_check">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>370</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>记住密码</string>
+    </property>
+   </widget>
+   <zorder>frame</zorder>
+   <zorder>exit_but</zorder>
+   <zorder>id_edit</zorder>
+   <zorder>log_but</zorder>
+   <zorder>key_edit</zorder>
+   <zorder>reg_but</zorder>
+   <zorder>label</zorder>
+   <zorder>auto_login_check</zorder>
+   <zorder>label_2</zorder>
+   <zorder>keep_password_check</zorder>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
