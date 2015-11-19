@@ -79,6 +79,19 @@ bool creat_database()
         "start_time varchar, "
         "end_time varchar)"
     );
+    
+    query.exec
+    (
+        "create table if not exists log ( "
+        "id int primary key, "
+        "state varchar"
+        "exe_id varchar, "
+        "exe_name varchar, "
+        "usr_id varchar, "
+        "usr_name varchar, "
+        "TM varchar)"
+    );
+    
     return true;
 }
 
