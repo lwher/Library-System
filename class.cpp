@@ -91,7 +91,19 @@ bool creat_database()
         "usr_name varchar, "
         "TM varchar)"
     );
-    
+
+    //add administrator
+    User doge;
+    if(search_user_id(doge, "admin") == 1)
+    {
+        doge.id = "admin";
+        doge.key = make_password("admin");
+        doge.email = "lwher1996@sjtu.edu.cn";
+        doge.name = "admin";
+        doge.phone = "12345678901";
+        doge.level = 2;
+        user_insert(doge);
+    }
     return true;
 }
 
