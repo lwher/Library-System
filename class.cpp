@@ -47,7 +47,7 @@ bool creat_database()
     (
         "create table if not exists books( "
         "id varchar primary key, "
-        "IBSN varchar, "
+        "ISBN varchar, "
         "level int, "
         "name varchar, "
         "author varchar, "
@@ -79,31 +79,6 @@ bool creat_database()
         "start_time varchar, "
         "end_time varchar)"
     );
-    
-    query.exec
-    (
-        "create table if not exists log ( "
-        "id int primary key, "
-        "state varchar"
-        "exe_id varchar, "
-        "exe_name varchar, "
-        "usr_id varchar, "
-        "usr_name varchar, "
-        "TM varchar)"
-    );
-
-    //add administrator
-    User doge;
-    if(search_user_id(doge, "admin") == 1)
-    {
-        doge.id = "admin";
-        doge.key = make_password("admin");
-        doge.email = "lwher1996@sjtu.edu.cn";
-        doge.name = "admin";
-        doge.phone = "12345678901";
-        doge.level = 2;
-        user_insert(doge);
-    }
     return true;
 }
 
