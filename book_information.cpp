@@ -20,7 +20,7 @@ book_information::~book_information()
 void book_information::on_search_but_clicked()
 {
     QString str = ui -> search_edit -> text();
-    enum type{id, IBSN, level, name, author, press, intro, total,left};
+    enum type{id, ISBN, level, name, author, press, intro, total,left};
     int flag, cnt;
     if(ui -> name_but ->isChecked()) flag = name;
     if(ui -> author_but ->isChecked()) flag = author;
@@ -35,7 +35,7 @@ void book_information::on_search_but_clicked()
         //(*it).printf();
         ui -> book_table -> insertRow(cnt);
         ui -> book_table -> setItem(cnt, id, new QTableWidgetItem(it -> id));
-        ui -> book_table -> setItem(cnt, IBSN, new QTableWidgetItem(it -> IBSN));
+        ui -> book_table -> setItem(cnt, ISBN, new QTableWidgetItem(it -> ISBN));
         ui -> book_table -> setItem(cnt, level, new QTableWidgetItem(QString::number(it -> level, 10)));
         ui -> book_table -> setItem(cnt, name, new QTableWidgetItem(it -> name));
         ui -> book_table -> setItem(cnt, author, new QTableWidgetItem(it -> author));
@@ -60,7 +60,7 @@ bool book_information::get_book(Book &book)
         return 0;
     }
     book.id = ui -> id_edit -> text();
-    book.IBSN = ui -> IBSN_edit -> text();
+    book.ISBN = ui -> ISBN_edit -> text();
     book.level = (ui -> level_edit -> text()).toInt();
     book.name = ui -> name_edit -> text();
     book.author = ui -> author_edit -> text();
@@ -106,7 +106,7 @@ void book_information::on_search_id_clicked()
     if(search_book_id(book, id) == 0)
     {
         ui -> id_edit -> setText(book.id);
-        ui -> IBSN_edit -> setText(book.IBSN);
+        ui -> ISBN_edit -> setText(book.ISBN);
         ui -> level_edit -> setText(QString :: number(book.level));
         ui -> name_edit -> setText(book.name);
         ui -> author_edit -> setText(book.author);

@@ -11,7 +11,7 @@ int book_insert(Book book)
     (
         "insert into books " "values ( "
         ":id, "
-        ":IBSN, "
+        ":ISBN, "
         ":level, "
         ":name, "
         ":author, "
@@ -21,7 +21,7 @@ int book_insert(Book book)
         ":left)"
     );
     query.bindValue(":id", book.id);
-    query.bindValue(":IBSN", book.IBSN);
+    query.bindValue(":ISBN", book.ISBN);
     query.bindValue(":level", book.level);
     query.bindValue(":name", book.name);
     query.bindValue(":author", book.author);
@@ -58,7 +58,7 @@ int book_modify(Book book)
     query.prepare
     (
         "update books set "
-        "IBSN = :IBSN, "
+        "ISBN = :ISBN, "
         "level = :level, "
         "name = :name, "
         "author = :author, "
@@ -69,7 +69,7 @@ int book_modify(Book book)
         "where id = :id"
     );
     query.bindValue(":id", book.id);
-    query.bindValue(":IBSN", book.IBSN);
+    query.bindValue(":ISBN", book.ISBN);
     query.bindValue(":level", book.level);
     query.bindValue(":name", book.name);
     query.bindValue(":author", book.author);
@@ -91,7 +91,7 @@ int search_book_id(Book &book, QString book_id)
     if(!db.open())
         return warning("can't find data.db!", 2);
 
-    enum type{id, IBSN, level, name, author, press, intro, total,left};
+    enum type{id, ISBN, level, name, author, press, intro, total,left};
     QSqlQuery query;
     query.prepare("select * from books where id = :id");
     query.bindValue(":id", book_id);
@@ -101,7 +101,7 @@ int search_book_id(Book &book, QString book_id)
     while(query.next())
     {
         book.id = query.value(id).toString();
-        book.IBSN = query.value(IBSN).toString();
+        book.ISBN = query.value(ISBN).toString();
         book.level = query.value(level).toInt();
         book.name = query.value(name).toString();
         book.author = query.value(author).toString();
@@ -124,7 +124,7 @@ int book_search(QVector<Book> &book, QString str, int flag)
 
     Book tem;
     book.clear();
-    enum type{id, IBSN, level, name, author, press, intro, total,left};
+    enum type{id, ISBN, level, name, author, press, intro, total,left};
 
     for(int i = str.size() - 1; i >= 0; i--)
         if(str[i] == QChar(' '))
@@ -157,7 +157,7 @@ int book_search(QVector<Book> &book, QString str, int flag)
     while (query.next())
     {
         tem.id = query.value(id).toString();
-        tem.IBSN = query.value(IBSN).toString();
+        tem.ISBN = query.value(ISBN).toString();
         tem.level = query.value(level).toInt();
         tem.name = query.value(name).toString();
         tem.author = query.value(author).toString();
