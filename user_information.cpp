@@ -36,7 +36,7 @@ void user_information::on_modify_but_clicked()
     if(get_user(user))
         if(search_user_id(tem, user.id) == 0)
         {
-            if(root.level <= tem.level)
+            if(root.level <= tem.level || root.level <= user.level)
             {
                 warning("Permission Denied");
                 return;
