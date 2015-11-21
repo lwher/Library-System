@@ -171,7 +171,7 @@ int add_user_log(int state, User executor, User user)
  * "select_log_with_id" returns a vector that contain the logs<QString> that involving User(id).
  */
 
-int select_log_with_id(vector<QString>& logs, QString id)
+int select_log_with_id(QVector<QString>& logs, QString id)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -203,7 +203,7 @@ int select_log_with_id(vector<QString>& logs, QString id)
  * "select_log_with_name" returns a vector that contain the logs<QString> that involving User(id).
  */
 
-int select_log_with_name(vector<QString>& logs, QString name)
+int select_log_with_name(QVector<QString>& logs, QString name)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -234,7 +234,7 @@ int select_log_with_name(vector<QString>& logs, QString name)
  * "select_log_all" returns a vector that contain the all logs
  */
 
-int select_log_all(vector<QString>& logs)
+int select_log_all(QVector<QString>& logs)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");

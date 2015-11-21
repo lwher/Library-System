@@ -6,8 +6,8 @@ modify::modify(QWidget *parent) :
     ui(new Ui::modify)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
-    setWindowFlags(Qt::FramelessWindowHint);
+//    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+//    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 modify::~modify()
@@ -31,12 +31,25 @@ void modify::on_submit_but_clicked()
         return;
     }
 
+    if(ui -> key_edit -> text() == "")
+    {
+        warning("Please input the newkey");
+        return;
+    }
+
     user.id = root.id;
-    user.key = ui -> key_edit -> text();
+    user.key = make_password(ui -> key_edit -> text());
     user.name = ui -> name_edit -> text();
     user.phone = ui -> phone_edit -> text();
     user.email = ui -> email_edit -> text();
-    user.level = (ui -> admin_edit -> text()) == admin_key;
+    if((ui -> admin_edit -> text()) == admin_key)
+    {
+        user.level = 1;
+    }
+    else
+    {
+        user.level = root.level;
+    }
     user_modify(user);
     root = user;
 }

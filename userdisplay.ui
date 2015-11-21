@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>common_user</class>
- <widget class="QMainWindow" name="common_user">
+ <class>UserDisplay</class>
+ <widget class="QMainWindow" name="UserDisplay">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,18 +14,38 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <property name="toolTipDuration">
+    <number>3</number>
+   </property>
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>120</y>
-      <width>75</width>
-      <height>23</height>
+      <y>140</y>
+      <width>256</width>
+      <height>121</height>
      </rect>
     </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
+    <row>
+     <property name="text">
+      <string>账号</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>用户名</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>邮箱</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>手机</string>
+     </property>
+    </row>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

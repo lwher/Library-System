@@ -24,8 +24,10 @@ SOURCES += main.cpp\
     book_database.cpp \
     user_database.cpp \
     event_database.cpp \
-    number_datebase.cpp \
-    common_user.cpp
+    common_user.cpp \
+    user_display.cpp \
+    book_display.cpp \
+    log_system.cpp
 
 HEADERS  += login.h \
     class.h \
@@ -37,7 +39,9 @@ HEADERS  += login.h \
     book.h \
     user.h \
     event.h \
-    common_user.h
+    common_user.h \
+    user_display.h \
+    book_display.h
 
 FORMS    += login.ui \
     regist.ui \
@@ -45,7 +49,8 @@ FORMS    += login.ui \
     user_information.ui \
     event_information.ui \
     modify.ui \
-    common_user.ui
+    common_user.ui \
+    user_display.ui \
+    book_display.ui
 
-RESOURCES += \
-    resource.qrc
+RESOURCES +=

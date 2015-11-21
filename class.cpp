@@ -20,6 +20,10 @@ event_information* event_window(){ static event_information tem; return &tem;}
 
 common_user* common_user_window(){ static common_user tem; return &tem;}
 
+user_display* user_display_window(){ static user_display tem; return &tem;}
+
+book_display* book_display_window(){ static book_display tem; return &tem;}
+
 bool is_num(QString str) { bool ok; str.toInt(&ok); return ok;}
 
 QString get_time()

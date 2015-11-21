@@ -4,7 +4,7 @@
 class Book
 {
 public :
-    QString id, name, author, press, intro, ISBN;
+    QString id, name, author, press, intro,ISBN;
     int total, left, level;
     void printf()
     {
