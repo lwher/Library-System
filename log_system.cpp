@@ -44,7 +44,7 @@ int add_book_log(int state, User executor, Book book, User opt)
 
     time_t t = time(0);
     char tmp[64];
-    strftime(tmp, sizeof(tmp), "%Y年%m月%d日 %X, ", localtime(&t));
+    strftime(tmp, sizeof(tmp), "%Y/%m/%d %X, ", localtime(&t));
 
     QString TM = "";
     for (int i = 0; i != strlen(tmp); ++i)
@@ -120,7 +120,7 @@ int add_user_log(int state, User executor, User user)
 
     time_t t = time(0);
     char tmp[64];
-    strftime(tmp, sizeof(tmp), "%X %m月%d日 %Y年, ", localtime(&t));
+    strftime(tmp, sizeof(tmp), "%Y/%m/%d %X, ", localtime(&t));
 
     QString TM = "";
     for (int i = 0; i != strlen(tmp); ++i)
@@ -177,7 +177,7 @@ int add_user_log(int state, User executor, User user)
  * "select_log_with_id" returns a vector that contain the logs<QString> that involving User(id).
  */
 
-int select_log_with_id(vector<QString>& logs, QString id)
+int select_log_with_id(QVector<QString>& logs, QString id)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -203,6 +203,7 @@ int select_log_with_id(vector<QString>& logs, QString id)
         log += ".";
         logs.push_back(log);
     }
+    return 0;
 }
 
 /**
@@ -212,7 +213,7 @@ int select_log_with_id(vector<QString>& logs, QString id)
  * "select_log_with_name" returns a vector that contain the logs<QString> that involving User(id).
  */
 
-int select_log_with_name(vector<QString>& logs, QString name)
+int select_log_with_name(QVector<QString>& logs, QString name)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -238,6 +239,7 @@ int select_log_with_name(vector<QString>& logs, QString name)
         log += ".";
         logs.push_back(log);
     }
+    return 0;
 }
 
 /**
@@ -246,7 +248,7 @@ int select_log_with_name(vector<QString>& logs, QString name)
  * "select_log_all" returns a vector that contain the all logs
  */
 
-int select_log_all(vector<QString>& logs)
+int select_log_all(QVector<QString>& logs)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -271,4 +273,5 @@ int select_log_all(vector<QString>& logs)
         log += ".";
         logs.push_back(log);
     }
+    return 0;
 }

@@ -73,9 +73,9 @@ extern int event_search(QVector<Event> &event, QString str, int flag);
 
 extern int add_book_log(int state, User executor, Book book, User opt);
 extern int add_user_log(int state, User executor, User user);
-extern int select_log_with_id(vector<QString>& logs, QString id);
-extern int select_log_with_name(vector<QString>& logs, QString name);
-extern int select_log_all(vector<QString>& logs);
+extern int select_log_with_id(QVector<QString>& logs, QString id);
+extern int select_log_with_name(QVector<QString>& logs, QString name);
+extern int select_log_all(QVector<QString>& logs);
 
 /*
 extern void get_number();
