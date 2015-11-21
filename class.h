@@ -71,7 +71,7 @@ extern int get_max_id();
 extern int search_event_id(Event &user, QString id);
 extern int event_search(QVector<Event> &event, QString str, int flag);
 
-extern int add_book_log(int state, User executor, Book book);
+extern int add_book_log(int state, User executor, Book book, User opt);
 extern int add_user_log(int state, User executor, User user);
 extern int select_log_with_id(vector<QString>& logs, QString id);
 extern int select_log_with_name(vector<QString>& logs, QString name);
