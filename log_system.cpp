@@ -21,6 +21,8 @@ int max_id()
  * @param state
  * @param executor
  * @param book
+ * !!!!!!!!!!!!!!! All the operations are done by the User opt.  //operator
+ * !!!!!!!!!!!!!!! If an admin modifies a book, the opt is his self.
  * state == 0:
         A user (mostly an admin) adds a book to the library.
    state == 1:
@@ -33,7 +35,7 @@ int max_id()
         A user returns a book to the library.
  */
 
-int add_book_log(int state, User executor, Book book)
+int add_book_log(int state, User executor, Book book, User opt)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -42,28 +44,28 @@ int add_book_log(int state, User executor, Book book)
 
     time_t t = time(0);
     char tmp[64];
-    strftime(tmp, sizeof(tmp), "%X %m月%d日 %Y年, ", localtime(&t));
+    strftime(tmp, sizeof(tmp), "%Y年%m月%d日 %X, ", localtime(&t));
 
-    QString TM;
+    QString TM = "";
     for (int i = 0; i != strlen(tmp); ++i)
         TM += QChar (tmp[i]);
 
     QString state_str;
     switch (state) {
     case 0:
-        state_str = "added a book called ";
+        state_str = "添加了一本书 ： ";
         break;
     case 1:
-        state_str = "deleted a book called ";
+        state_str = "删除了一本书 ： ";
         break;
     case 2:
-        state_str = "modified a book called ";
+        state_str = "修改了一本书 ： ";
         break;
     case 3:
-        state_str = "rented a book called ";
+        state_str = "借了一本书 ： ";
         break;
     case 4:
-        state_str = "returned a book called ";
+        state_str = "还了一本书 ： ";
         break;
     default:
         break;
@@ -80,6 +82,7 @@ int add_book_log(int state, User executor, Book book)
         ":exe_name, "
         ":usr_id, "
         ":usr_name, "
+        ":opt"
         ":TM)"
     );
 
@@ -89,6 +92,7 @@ int add_book_log(int state, User executor, Book book)
     query.bindValue(":exe_name", executor.name);
     query.bindValue(":usr_id", book.id);
     query.bindValue(":usr_name", book.name);
+    query.bindValue(":opt", opt);
     query.bindValue(":TM", TM);
 
     if(!query.exec())
@@ -118,20 +122,20 @@ int add_user_log(int state, User executor, User user)
     char tmp[64];
     strftime(tmp, sizeof(tmp), "%X %m月%d日 %Y年, ", localtime(&t));
 
-    QString TM;
+    QString TM = "";
     for (int i = 0; i != strlen(tmp); ++i)
         TM += QChar (tmp[i]);
 
     QString state_str;
     switch (state) {
     case 0:
-        state_str = "inserts a user called ";
+        state_str = "添加了一个用户 ： ";
         break;
     case 1:
-        state_str = "deletes a user called ";
+        state_str = "删除了一个用户 ： ";
         break;
     case 2:
-        state_str = "modifies a user called ";
+        state_str = "修改了一个用户 ： ";
         break;
     default:
         break;
@@ -147,6 +151,7 @@ int add_user_log(int state, User executor, User user)
         ":exe_name, "
         ":usr_id, "
         ":usr_name, "
+        ":opt"
         ":TM)"
     );
 
@@ -156,6 +161,7 @@ int add_user_log(int state, User executor, User user)
     query.bindValue(":exe_name", executor.name);
     query.bindValue(":usr_id", user.id);
     query.bindValue(":usr_name", user.name);
+    query.bindValue(":opt", executor.name);
     query.bindValue(":TM", TM);
 
     if(!query.exec())
@@ -171,7 +177,7 @@ int add_user_log(int state, User executor, User user)
  * "select_log_with_id" returns a vector that contain the logs<QString> that involving User(id).
  */
 
-int select_log_with_id(QVector<QString>& logs, QString id)
+int select_log_with_id(vector<QString>& logs, QString id)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -188,10 +194,13 @@ int select_log_with_id(QVector<QString>& logs, QString id)
     while (query.next())
     {
         QString log = "";
-        log += query.value(6).toString();
+        log += query.value(7).toString();
         log += query.value(3).toString();
+        log += "通过 ";
+        log += query.value(6) == query.value(3) ? "他自己 " : query.value(6).toString();
         log += query.value(1).toString();
         log += query.value(5).toString();
+        log += ".";
         logs.push_back(log);
     }
 }
@@ -203,7 +212,7 @@ int select_log_with_id(QVector<QString>& logs, QString id)
  * "select_log_with_name" returns a vector that contain the logs<QString> that involving User(id).
  */
 
-int select_log_with_name(QVector<QString>& logs, QString name)
+int select_log_with_name(vector<QString>& logs, QString name)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -220,10 +229,13 @@ int select_log_with_name(QVector<QString>& logs, QString name)
     while (query.next())
     {
         QString log = "";
-        log += query.value(6).toString();
+        log += query.value(7).toString();
         log += query.value(3).toString();
+        log += "通过 ";
+        log += query.value(6) == query.value(3) ? "他自己 " : query.value(6).toString();
         log += query.value(1).toString();
         log += query.value(5).toString();
+        log += ".";
         logs.push_back(log);
     }
 }
@@ -234,7 +246,7 @@ int select_log_with_name(QVector<QString>& logs, QString name)
  * "select_log_all" returns a vector that contain the all logs
  */
 
-int select_log_all(QVector<QString>& logs)
+int select_log_all(vector<QString>& logs)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data/data.db");
@@ -250,10 +262,13 @@ int select_log_all(QVector<QString>& logs)
     while (query.next())
     {
         QString log = "";
-        log += query.value(6).toString();
+        log += query.value(7).toString();
         log += query.value(3).toString();
+        log += "通过 ";
+        log += query.value(6) == query.value(3) ? "他自己 " : query.value(6).toString();
         log += query.value(1).toString();
         log += query.value(5).toString();
+        log += ".";
         logs.push_back(log);
     }
 }
