@@ -92,7 +92,7 @@ int add_book_log(int state, User executor, Book book, User opt)
     query.bindValue(":exe_name", executor.name);
     query.bindValue(":usr_id", book.id);
     query.bindValue(":usr_name", book.name);
-    query.bindValue(":opt", opt);
+    query.bindValue(":opt", opt.name);
     query.bindValue(":TM", TM);
 
     if(!query.exec())
