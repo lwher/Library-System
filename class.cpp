@@ -93,6 +93,7 @@ bool creat_database()
         "exe_name varchar, "
         "usr_id varchar, "
         "usr_name varchar, "
+        "opt varchar, "
         "TM varchar)"
     };
 
