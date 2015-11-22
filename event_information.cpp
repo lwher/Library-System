@@ -110,12 +110,16 @@ void event_information::on_search_but_clicked()
 
 void event_information::on_user_id_search_but_clicked()
 {
-
+    QString str = ui -> user_id_edit -> text();
+    user_display_window() -> get_started(str);
+    user_display_window() -> show();
 }
 
 void event_information::on_book_id_search_but_clicked()
 {
-
+    QString str = ui -> book_id_edit -> text();
+    book_display_window() -> get_started(str);
+    book_display_window() -> show();
 }
 
 void event_information::on_exit_but_clicked()

@@ -17,6 +17,25 @@ book_information::~book_information()
     delete ui;
 }
 
+void book_information::ButtonEnable()
+{
+    ui -> modify_but -> setEnabled(true);
+    ui -> insert_but -> setEnabled(true);
+    ui -> delete_but -> setEnabled(true);
+}
+
+void book_information::ButtonDisable()
+{
+    ui -> modify_but -> setEnabled(false);
+    ui -> insert_but -> setEnabled(false);
+    ui -> delete_but -> setEnabled(false);
+}
+
+void book_information::SetSearchText(QString Str)
+{
+    ui -> search_edit ->setText(Str);
+}
+
 void book_information::on_search_but_clicked()
 {
     QString str = ui -> search_edit -> text();

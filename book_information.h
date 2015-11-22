@@ -32,6 +32,11 @@ private slots:
 
 private:
     Ui::book_information *ui;
+
+public:
+    void ButtonEnable();
+    void ButtonDisable();
+    void SetSearchText(QString);
 };
 
 #endif // BOOK_information_H

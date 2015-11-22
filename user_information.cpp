@@ -27,6 +27,7 @@ bool user_information::get_user(User &user)
     user.email = ui -> email_edit -> text();
     user.phone = ui -> phone_edit -> text();
     user.level = (ui -> level_edit -> text()).toInt();
+
     return 1;
 }
 
@@ -36,7 +37,11 @@ void user_information::on_modify_but_clicked()
     if(get_user(user))
         if(search_user_id(tem, user.id) == 0)
         {
-            if(root.level <= tem.level)
+            if(user.key == make_password(""))
+            {
+               user.key = tem.key;
+            }
+            if(root.level <= tem.level || root.level <= user.level)
             {
                 warning("Permission Denied");
                 return;
@@ -73,6 +78,11 @@ void user_information::on_insert_but_clicked()
     if(get_user(user))
         if(search_user_id(tem, user.id) == 1)
         {
+            if(user.key == "")
+            {
+                warning("Please input the key");
+                return;
+            }
             if(root.level <= user.level)
             {
                 warning("Permission Denied");
@@ -111,7 +121,6 @@ void user_information::on_search_but_clicked()
 
     for(QVector <User>  :: iterator it = user.begin(); it != user.end(); ++it)
     {
-        //(*it).printf();
         ui -> user_table -> insertRow(cnt);
         ui -> user_table -> setItem(cnt, 0, new QTableWidgetItem(it -> id));
         ui -> user_table -> setItem(cnt, 1, new QTableWidgetItem(it -> name));
