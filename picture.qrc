@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>picture/14e43cd9c939e223219c9d0c90a363f5_m.png</file>
+        <file>picture/22331.png</file>
+        <file>picture/22332.png</file>
+        <file>picture/22333.png</file>
+        <file>picture/22334.png</file>
+        <file>picture/登录配图.png</file>
+        <file>picture/注册配图.1.png</file>
+        <file>picture/QQ截图20151108145840.png</file>
+        <file>picture/框.png</file>
+        <file>picture/框2.png</file>
+        <file>picture/框Big.png</file>
+        <file>picture/doge.jpeg</file>
+        <file>picture/doge_success.png</file>
+        <file>picture/22.png</file>
+        <file>picture/33.png</file>
+    </qresource>
+</RCC>

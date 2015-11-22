@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>248</width>
-    <height>551</height>
+    <width>783</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,15 +17,19 @@
    <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>290</x>
+      <y>80</y>
       <width>247</width>
       <height>501</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="7" column="1">
-      <widget class="QTextEdit" name="intro_edit"/>
+      <widget class="QTextEdit" name="intro_edit">
+       <property name="styleSheet">
+        <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
+       </property>
+      </widget>
      </item>
      <item row="15" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -45,18 +49,14 @@
        <item>
         <widget class="QPushButton" name="exit_but">
          <property name="text">
-          <string>退出</string>
+          <string>关闭</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>出版社</string>
-       </property>
-      </widget>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="author_edit"/>
      </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_5">
@@ -65,16 +65,23 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="author_edit"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="name_edit"/>
-     </item>
      <item row="7" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
         <string>简介</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="name_edit"/>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="press_edit"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>出版社</string>
        </property>
       </widget>
      </item>
@@ -85,21 +92,12 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QLineEdit" name="press_edit"/>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_6">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>书号</string>
+        <string>ISBN</string>
        </property>
       </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="id_edit"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="ISBN_edit"/>
      </item>
      <item row="8" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -135,27 +133,53 @@
        </item>
       </layout>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_9">
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>ISBN</string>
+        <string>书号</string>
        </property>
       </widget>
      </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="id_edit"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="ISBN_edit"/>
+     </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>248</width>
-     <height>23</height>
-    </rect>
-   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>60</y>
+      <width>301</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/picture/框Big.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_2</zorder>
+   <zorder>gridLayoutWidget_2</zorder>
+   <zorder>ISBN_edit</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
  </widget>
  <resources/>
  <connections/>

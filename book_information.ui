@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1175</width>
-    <height>684</height>
+    <width>1278</width>
+    <height>897</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>90</y>
+      <x>870</x>
+      <y>260</y>
       <width>247</width>
-      <height>501</height>
+      <height>521</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
@@ -29,6 +29,13 @@
      </item>
      <item row="19" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="modify_info_but">
+         <property name="text">
+          <string>修改个人信息</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
@@ -54,14 +61,14 @@
      <item row="9" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
-        <string>出版社</string>
+        <string/>
        </property>
       </widget>
      </item>
      <item row="8" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>作者</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -151,14 +158,14 @@
      <item row="10" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
-        <string>简介</string>
+        <string/>
        </property>
       </widget>
      </item>
      <item row="7" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>书名</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -168,7 +175,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>书号</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -199,7 +206,7 @@
      <item row="6" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>书号</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -217,7 +224,7 @@
        <item>
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>藏书量</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -227,7 +234,7 @@
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>剩余量</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -237,7 +244,7 @@
        <item>
         <widget class="QLabel" name="label_10">
          <property name="text">
-          <string>等级</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -249,7 +256,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>ISBN</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -261,10 +268,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>90</y>
-      <width>801</width>
-      <height>491</height>
+      <x>40</x>
+      <y>260</y>
+      <width>821</width>
+      <height>521</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -323,6 +330,59 @@
      </property>
     </column>
    </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>1121</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/picture/框Big.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>190</y>
+      <width>161</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 28pt &quot;微软雅黑&quot;;</string>
+    </property>
+    <property name="text">
+     <string>书籍管理</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>-190</x>
+      <y>20</y>
+      <width>661</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/picture/22331.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_11</zorder>
+   <zorder>gridLayoutWidget_2</zorder>
+   <zorder>book_table</zorder>
+   <zorder>label_12</zorder>
+   <zorder>label_13</zorder>
   </widget>
  </widget>
  <resources/>
