@@ -27,9 +27,7 @@ SOURCES += main.cpp\
     common_user.cpp \
     user_display.cpp \
     book_display.cpp \
-    log_system.cpp \
-    compress.cpp \
-    decompress.cpp
+    start_moive.cpp
 
 HEADERS  += login.h \
     class.h \
@@ -43,7 +41,8 @@ HEADERS  += login.h \
     event.h \
     common_user.h \
     user_display.h \
-    book_display.h
+    book_display.h \
+    start_moive.h
 
 FORMS    += login.ui \
     regist.ui \
@@ -53,6 +52,8 @@ FORMS    += login.ui \
     modify.ui \
     common_user.ui \
     user_display.ui \
-    book_display.ui
+    book_display.ui \
+    start_moive.ui
 
-RESOURCES +=
+RESOURCES += \
+    resource.qrc
