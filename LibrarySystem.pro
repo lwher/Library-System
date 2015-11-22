@@ -27,7 +27,9 @@ SOURCES += main.cpp\
     common_user.cpp \
     user_display.cpp \
     book_display.cpp \
-    log_system.cpp
+    log_system.cpp \
+    compress.cpp \
+    decompress.cpp
 
 HEADERS  += login.h \
     class.h \

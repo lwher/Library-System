@@ -77,6 +77,9 @@ extern int select_log_with_id(QVector<QString>& logs, QString id);
 extern int select_log_with_name(QVector<QString>& logs, QString name);
 extern int select_log_all(QVector<QString>& logs);
 
+extern int compress();
+extern int decompress();
+
 /*
 extern void get_number();
 extern void update_number();

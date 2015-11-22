@@ -85,7 +85,7 @@ bool creat_database()
     );
 
     query.exec
-    {
+    (
         "create table if not exists log ( "
         "id int primary key, "
         "state varchar, "
@@ -95,7 +95,7 @@ bool creat_database()
         "usr_name varchar, "
         "opt varchar, "
         "TM varchar)"
-    };
+    );
 
     // add administrator
     User admin;
