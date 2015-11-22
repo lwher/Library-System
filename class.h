@@ -22,6 +22,8 @@
 #include "event.h"
 #include "user.h"
 #include "common_user.h"
+#include "user_display.h"
+#include "book_display.h"
 using namespace std;
 
 extern User root;
@@ -34,6 +36,8 @@ extern user_information* user_window();
 extern book_information* book_window();
 extern event_information* event_window();
 extern common_user* common_user_window();
+extern user_display* user_display_window();
+extern book_display* book_display_window();
 
 extern QString make_password(QString PP);
 extern QString get_time();
@@ -66,6 +70,16 @@ extern int get_max_id();
 
 extern int search_event_id(Event &user, QString id);
 extern int event_search(QVector<Event> &event, QString str, int flag);
+
+extern int add_book_log(int state, User executor, Book book, User opt);
+extern int add_user_log(int state, User executor, User user);
+extern int select_log_with_id(QVector<QString>& logs, QString id);
+extern int select_log_with_name(QVector<QString>& logs, QString name);
+extern int select_log_all(QVector<QString>& logs);
+
+extern int compress();
+extern int decompress();
+
 /*
 extern void get_number();
 extern void update_number();

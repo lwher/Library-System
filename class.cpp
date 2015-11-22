@@ -20,6 +20,10 @@ event_information* event_window(){ static event_information tem; return &tem;}
 
 common_user* common_user_window(){ static common_user tem; return &tem;}
 
+user_display* user_display_window(){ static user_display tem; return &tem;}
+
+book_display* book_display_window(){ static book_display tem; return &tem;}
+
 bool is_num(QString str) { bool ok; str.toInt(&ok); return ok;}
 
 QString get_time()
@@ -79,6 +83,32 @@ bool creat_database()
         "start_time varchar, "
         "end_time varchar)"
     );
+
+    query.exec
+    (
+        "create table if not exists log ( "
+        "id int primary key, "
+        "state varchar, "
+        "exe_id varchar, "
+        "exe_name varchar, "
+        "usr_id varchar, "
+        "usr_name varchar, "
+        "opt varchar, "
+        "TM varchar)"
+    );
+
+    // add administrator
+    User admin;
+    if(search_user_id(admin, "admin") == 1)
+    {
+        admin.id = "admin";
+        admin.key = make_password("admin");
+        admin.email = "lwher1996@sjtu.edu.cn";
+        admin.name = "admin";
+        admin.phone = "12345678901";
+        admin.level = 2;
+        user_insert(admin);
+    }
     return true;
 }
 
