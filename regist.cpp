@@ -7,8 +7,8 @@ regist::regist(QWidget *parent) :
 {
 
     ui->setupUi(this);
-//    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
-//    setWindowFlags(Qt::FramelessWindowHint);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 regist::~regist()

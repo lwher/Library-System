@@ -83,32 +83,6 @@ bool creat_database()
         "start_time varchar, "
         "end_time varchar)"
     );
-
-    query.exec
-    (
-        "create table if not exists log ( "
-        "id int primary key, "
-        "state varchar, "
-        "exe_id varchar, "
-        "exe_name varchar, "
-        "usr_id varchar, "
-        "usr_name varchar, "
-        "opt varchar, "
-        "TM varchar)"
-    );
-
-    // add administrator
-    User admin;
-    if(search_user_id(admin, "admin") == 1)
-    {
-        admin.id = "admin";
-        admin.key = make_password("admin");
-        admin.email = "lwher1996@sjtu.edu.cn";
-        admin.name = "admin";
-        admin.phone = "12345678901";
-        admin.level = 2;
-        user_insert(admin);
-    }
     return true;
 }
 
