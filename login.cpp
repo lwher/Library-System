@@ -7,8 +7,8 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
-    setWindowFlags(Qt::FramelessWindowHint);
+//    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+//    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 login::~login()
@@ -27,9 +27,15 @@ void login::on_log_but_clicked()
         {
             root = tem ;
             if(root.level > 0)
+            {
+                book_window() -> ButtonEnable();
                 event_window() -> show();
+            }
             else
-                common_user_window() -> show();
+            {
+                book_window() -> ButtonDisable();
+                book_window() -> show();
+            }
             close();
         }
     }
