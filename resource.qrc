@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/new/prefix1">
-        <file>picture/注册.png</file>
-        <file>picture/登录.png</file>
-        <file>picture/修改用户信息.png</file>
-    </qresource>
-</RCC>

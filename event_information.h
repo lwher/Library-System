@@ -33,6 +33,8 @@ private slots:
 
     void on_return_but_clicked();
 
+    void on_log_but_clicked();
+
 private:
     Ui::event_information *ui;
 };

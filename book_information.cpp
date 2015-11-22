@@ -8,8 +8,8 @@ book_information::book_information(QWidget *parent) :
     ui(new Ui::book_information)
 {
     ui->setupUi(this);
-    //this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
-    //setWindowFlags(Qt::FramelessWindowHint);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 book_information::~book_information()
@@ -19,16 +19,18 @@ book_information::~book_information()
 
 void book_information::ButtonEnable()
 {
-    ui -> modify_but -> setEnabled(true);
-    ui -> insert_but -> setEnabled(true);
-    ui -> delete_but -> setEnabled(true);
+    ui -> modify_but -> show();//setEnabled(true);
+    ui -> insert_but -> show();//setEnabled(true);
+    ui -> delete_but -> show();//setEnabled(true);
+    ui -> modify_info_but -> hide();
 }
 
 void book_information::ButtonDisable()
 {
-    ui -> modify_but -> setEnabled(false);
-    ui -> insert_but -> setEnabled(false);
-    ui -> delete_but -> setEnabled(false);
+    ui -> modify_but -> hide();
+    ui -> insert_but -> hide();//setEnabled(false);
+    ui -> delete_but -> hide();//setEnabled(false);
+    ui -> modify_info_but -> show();
 }
 
 void book_information::SetSearchText(QString Str)
@@ -70,12 +72,12 @@ bool book_information::get_book(Book &book)
 {
     if(!is_num(ui -> total_edit -> text()))
     {
-        warning("Pealse input number for total");
+        doge_warning("Pealse input number for total");
         return 0;
     }
     if(!is_num(ui -> left_edit -> text()))
     {
-        warning("Pealse input number for left");
+        doge_warning("Pealse input number for left");
         return 0;
     }
     book.id = ui -> id_edit -> text();
@@ -94,15 +96,37 @@ void book_information::on_modify_but_clicked()
 {
     Book book, tem;
     if(get_book(book))
-        if(search_book_id(tem,book.id) == 0)
+    {
+        int flag = search_book_id(tem,book.id);
+        if(flag == 0)
+        {
             book_modify(book);
+            add_book_log(2, root, book, root);
+            doge_success("Modify success");
+        }
+        if(flag == 1)
+        {
+            doge_warning("Can't find this ID");
+        }
+    }
 }
 
 void book_information::on_delete_but_clicked()
 {
     QString id = ui -> id_edit -> text();
     Book tem;
-    if(search_book_id(tem, id) == 0) book_delete(id);
+    int flag = search_book_id(tem, id);
+    if(flag == 0)
+    {
+        book_delete(id);
+        add_book_log(1, root, tem, root);
+        doge_success("Delete success");
+    }
+    if(flag == 1)
+    {
+        doge_warning("Can't find this ID");
+    }
+
 }
 
 void book_information::on_exit_but_clicked()
@@ -114,8 +138,19 @@ void book_information::on_insert_but_clicked()
 {
     Book book, tem;
     if(get_book(book))
-        if(search_book_id(tem,book.id) == 1)
+    {
+        int flag = search_book_id(tem,book.id);
+        if(flag == 1)
+        {
             book_insert(book);
+            add_book_log(0, root, book, root);
+            doge_success("Insert success");
+        }
+        if(flag == 0)
+        {
+            doge_warning("ID exist");
+        }
+    }
 }
 
 void book_information::on_search_id_clicked()
@@ -134,4 +169,9 @@ void book_information::on_search_id_clicked()
         ui -> total_edit -> setText(QString :: number(book.total));
         ui -> left_edit -> setText(QString :: number(book.left));
     }
+}
+
+void book_information::on_modify_info_but_clicked()
+{
+    modify_window() -> show();
 }

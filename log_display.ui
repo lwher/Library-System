@@ -106,8 +106,8 @@
      <rect>
       <x>80</x>
       <y>40</y>
-      <width>521</width>
-      <height>381</height>
+      <width>511</width>
+      <height>501</height>
      </rect>
     </property>
    </widget>
@@ -131,9 +131,9 @@
     <property name="geometry">
      <rect>
       <x>-250</x>
-      <y>360</y>
+      <y>370</y>
       <width>621</width>
-      <height>381</height>
+      <height>371</height>
      </rect>
     </property>
     <property name="styleSheet">

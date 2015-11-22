@@ -30,6 +30,8 @@ private slots:
 
     void on_search_id_clicked();
 
+    void on_modify_info_but_clicked();
+
 private:
     Ui::book_information *ui;
 

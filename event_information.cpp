@@ -6,6 +6,8 @@ event_information::event_information(QWidget *parent) :
     ui(new Ui::event_information)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 event_information::~event_information()
@@ -21,17 +23,17 @@ void event_information::on_insert_but_clicked()
     Book book;
     if(search_user_id(user, user_id) == 1)
     {
-        warning("Please input correct user_id");
+        doge_warning("Please input correct user_id");
         return;
     }
     if(search_book_id(book, book_id) == 1)
     {
-        warning("Please input correct book_id");
+        doge_warning("Please input correct book_id");
         return;
     }
     if(book.left == 0)
     {
-        warning("No such book left");
+        doge_warning("No such book left");
         return;
     }
     Event tem;
@@ -42,26 +44,39 @@ void event_information::on_insert_but_clicked()
     tem.start_time = get_time();
     tem.end_time = "Still not return";
     tem.printf();
-    if(event_insert(tem) == 0)
+    int flag = event_insert(tem);
+    if(flag == 0)
     {
-        warning("Success");
+        doge_success("Insert Success");
         --book.left;
         book_modify(book);
+        add_book_log(3, root, book, user);
     }
-    else
-        warning("event insert fail");
+    if(flag == 1)
+    {
+        doge_warning("event insert fail");
+    }
 }
 
 void event_information::on_return_but_clicked()
 {
-    int id = (ui -> id_edit -> text()).toInt();
-    if(!id)
+    QString user_id = ui -> user_id_edit -> text();
+    QString book_id = ui -> book_id_edit -> text();
+    User user;
+    Book book;
+    if(search_user_id(user, user_id) == 1)
     {
-        warning("Please input correct number");
-        return ;
+        doge_warning("Please input correct user_id");
+        return;
+    }
+    if(search_book_id(book, book_id) == 1)
+    {
+        doge_warning("Please input correct book_id");
+        return;
     }
     Event tem;
-    if(search_event_id(tem, id) == 0)
+    int flag = search_event_id(tem, user_id, book_id);
+    if(flag == 0)
     {
         QString book_id = tem.book_id;
         Book book;
@@ -69,8 +84,13 @@ void event_information::on_return_but_clicked()
         ++book.left;
         book_modify(book);
         tem.end_time = get_time();
-        //event_modify(tem);
-        event_delete(id);
+        event_delete(tem.id);
+        add_book_log(4, root, book, user);
+        doge_success("Return success");
+    }
+    if(flag == 1)
+    {
+        doge_warning("Can't find this event");
     }
 }
 
@@ -98,12 +118,12 @@ void event_information::on_search_but_clicked()
         //(*it).printf();
         ui -> event_table -> insertRow(cnt);
         ui -> event_table -> setItem(cnt, id, new QTableWidgetItem(QString :: number(it -> id, 10)));
-        ui -> event_table -> setItem(cnt, user_id, new QTableWidgetItem(it -> user_id));
-        ui -> event_table -> setItem(cnt, user_name, new QTableWidgetItem(it -> user_name));
-        ui -> event_table -> setItem(cnt, book_id, new QTableWidgetItem(it -> book_id));
-        ui -> event_table -> setItem(cnt, book_name, new QTableWidgetItem(it -> book_name));
-        ui -> event_table -> setItem(cnt, start_time, new QTableWidgetItem(it -> start_time));
-        ui -> event_table -> setItem(cnt, end_time, new QTableWidgetItem(it -> end_time));
+        ui -> event_table -> setItem(cnt, 0, new QTableWidgetItem(it -> user_id));
+        ui -> event_table -> setItem(cnt, 1, new QTableWidgetItem(it -> user_name));
+        ui -> event_table -> setItem(cnt, 2, new QTableWidgetItem(it -> book_id));
+        ui -> event_table -> setItem(cnt, 3, new QTableWidgetItem(it -> book_name));
+        ui -> event_table -> setItem(cnt, 4, new QTableWidgetItem(it -> start_time));
+        ui -> event_table -> setItem(cnt, 5, new QTableWidgetItem(it -> end_time));
         ++cnt;
     }
 }
@@ -111,19 +131,39 @@ void event_information::on_search_but_clicked()
 void event_information::on_user_id_search_but_clicked()
 {
     QString str = ui -> user_id_edit -> text();
-    user_display_window() -> get_started(str);
-    user_display_window() -> show();
+    User tem;
+    int flag = search_user_id(tem, str);
+    if(flag == 0)
+    {
+        user_display_window() -> get_started(str);
+        user_display_window() -> show();
+    }
+    if(flag == 1)
+    {
+        doge_warning("Can't find this Id");
+    }
 }
 
 void event_information::on_book_id_search_but_clicked()
 {
     QString str = ui -> book_id_edit -> text();
-    book_display_window() -> get_started(str);
-    book_display_window() -> show();
+    Book tem;
+    int flag = search_book_id(tem, str);
+    if(flag == 0)
+    {
+        book_display_window() -> get_started(str);
+        book_display_window() -> show();
+    }
+    if(flag == 1)
+    {
+        doge_warning("Can't find this Id");
+    }
+
 }
 
 void event_information::on_exit_but_clicked()
 {
+    compress();
     modify_window() -> close();
     user_window() -> close();
     book_window() -> close();
@@ -135,7 +175,6 @@ void event_information::on_book_info_but_clicked()
     book_window() -> show();
 }
 
-
 void event_information::on_user_info_but_clicked()
 {
     user_window() -> show();
@@ -146,3 +185,7 @@ void event_information::on_modify_but_clicked()
      modify_window() -> show();
 }
 
+void event_information::on_log_but_clicked()
+{
+    log_display_window() -> show();
+}

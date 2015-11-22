@@ -7,6 +7,8 @@ user_display::user_display(QWidget *parent) :
     ui(new Ui::user_display)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 user_display::~user_display()

@@ -1,5 +1,4 @@
 #include "class.h"
-
 using namespace std;
 
 QString admin_key = "dogeisgood";
@@ -18,11 +17,12 @@ book_information* book_window(){ static book_information tem; return &tem;}
 
 event_information* event_window(){ static event_information tem; return &tem;}
 
-common_user* common_user_window(){ static common_user tem; return &tem;}
-
 user_display* user_display_window(){ static user_display tem; return &tem;}
 
 book_display* book_display_window(){ static book_display tem; return &tem;}
+
+log_display* log_display_window(){ static log_display tem; return &tem;}
+
 
 bool is_num(QString str) { bool ok; str.toInt(&ok); return ok;}
 
@@ -34,15 +34,27 @@ QString get_time()
 
 int warning(QString str, int tem)
 {
-    QMessageBox::warning(NULL, "warning", str, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-    qDebug() << str;
+    //QMessageBox::warning(NULL, "warning", str, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    //qDebug() << str;
     return tem;
+}
+
+void doge_warning(QString str)
+{
+    static Doge tem;
+    tem.doge_warning(str);
+}
+void doge_success(QString str)
+{
+    static Doge tem;
+    tem.doge_success(str);
 }
 
 bool creat_database()
 {
+    decompress();
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return false;
     QSqlQuery query;
@@ -83,6 +95,31 @@ bool creat_database()
         "start_time varchar, "
         "end_time varchar)"
     );
+    query.exec
+    (
+        "create table if not exists log ( "
+        "id int primary key, "
+        "state varchar, "
+        "exe_id varchar, "
+        "exe_name varchar, "
+        "usr_id varchar, "
+        "usr_name varchar, "
+        "opt varchar, "
+        "TM varchar)"
+    );
+
+    // add administrator
+    User admin;
+    if(search_user_id(admin, "admin") == 1)
+    {
+        admin.id = "admin";
+        admin.key = make_password("admin");
+        admin.email = "lwher1996@sjtu.edu.cn";
+        admin.name = "admin";
+        admin.phone = "12345678901";
+        admin.level = 2;
+        user_insert(admin);
+    }
     return true;
 }
 

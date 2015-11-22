@@ -6,8 +6,8 @@ modify::modify(QWidget *parent) :
     ui(new Ui::modify)
 {
     ui->setupUi(this);
-//    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
-//    setWindowFlags(Qt::FramelessWindowHint);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 modify::~modify()
@@ -33,7 +33,7 @@ void modify::on_submit_but_clicked()
 
     if(ui -> key_edit -> text() == "")
     {
-        warning("Please input the newkey");
+        warning("Please input the new key");
         return;
     }
 

@@ -3,7 +3,7 @@
 int user_insert(User user)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
     QSqlQuery query;
@@ -31,7 +31,7 @@ int user_insert(User user)
 int user_delete(QString id)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
     QSqlQuery query;
@@ -45,7 +45,7 @@ int user_delete(QString id)
 int user_modify(User user)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
     QSqlQuery query;
@@ -75,7 +75,7 @@ int search_user_id(User &user, QString user_id)
     if(user_id == "")
         return warning("Please input id", 1);
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
 
@@ -104,7 +104,7 @@ int search_user_id(User &user, QString user_id)
 int user_search(QVector<User> &user, QString str, int flag)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("Can't find data.db!", 2);
 

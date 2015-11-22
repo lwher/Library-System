@@ -3,7 +3,7 @@
 int event_insert(Event event)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
     QSqlQuery query;
@@ -34,7 +34,7 @@ int event_insert(Event event)
 int event_modify(Event event)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
     QSqlQuery query;
@@ -64,7 +64,7 @@ int event_modify(Event event)
 int event_delete(int id)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
     QSqlQuery query;
@@ -75,17 +75,18 @@ int event_delete(int id)
     return warning("Delete success", 0);
 }
 
-int search_event_id(Event &event, int event_id)
+int search_event_id(Event &event, QString tem_user_id, QString tem_book_id)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
 
     enum type{id, user_id, user_name, book_id, book_name, start_time, end_time};
     QSqlQuery query;
-    query.prepare("select * from events where id = :id");
-    query.bindValue(":id", event_id);
+    query.prepare("select * from events where user_id = :user_id and book_id = :book_id");
+    query.bindValue(":user_id", tem_user_id);
+    query.bindValue(":book_id", tem_book_id);
     if(!query.exec())
         return warning("Search id fail", 1);
 
@@ -100,7 +101,7 @@ int search_event_id(Event &event, int event_id)
         event.end_time = query.value(end_time).toString();
     }
     event.printf();
-    if(event.id != event_id)
+    if(event.user_id != tem_user_id || event.book_id != tem_book_id)
         return warning("Search id fail", 1);
     return warning("Success!", 0);
 }
@@ -120,7 +121,7 @@ int get_max_id()
 int event_search(QVector<Event> &event, QString str, int flag)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("Can't find data.db!", 2);
 

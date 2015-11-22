@@ -24,10 +24,14 @@ SOURCES += main.cpp\
     book_database.cpp \
     user_database.cpp \
     event_database.cpp \
-    common_user.cpp \
     user_display.cpp \
     book_display.cpp \
-    start_moive.cpp
+    log_system.cpp \
+    log_display.cpp \
+    start_moive.cpp \
+    decompress.cpp \
+    compress.cpp \
+    doge.cpp
 
 HEADERS  += login.h \
     class.h \
@@ -39,10 +43,11 @@ HEADERS  += login.h \
     book.h \
     user.h \
     event.h \
-    common_user.h \
     user_display.h \
     book_display.h \
-    start_moive.h
+    log_display.h \
+    start_moive.h \
+    doge.h
 
 FORMS    += login.ui \
     regist.ui \
@@ -50,10 +55,11 @@ FORMS    += login.ui \
     user_information.ui \
     event_information.ui \
     modify.ui \
-    common_user.ui \
     user_display.ui \
     book_display.ui \
-    start_moive.ui
+    log_display.ui \
+    start_moive.ui \
+    doge.ui
 
 RESOURCES += \
-    resource.qrc
+    picture.qrc

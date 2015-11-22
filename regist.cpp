@@ -26,7 +26,7 @@ void regist::on_submit_but_clicked()
     User user, tem;
     if(ui -> key_edit -> text() != ui -> confirm_edit -> text())
     {
-        warning("Two password is not the same");
+        doge_warning("Two password is not the same");
         return;
     }
     user.id = ui -> id_edit -> text();
@@ -36,10 +36,10 @@ void regist::on_submit_but_clicked()
     user.email = ui -> email_edit -> text();
     user.level = (ui -> admin_edit -> text()) == admin_key;
     if(search_user_id(tem, user.id) == 0)
-        warning("Id exist");
+        doge_warning("Id exist");
     else
     {
-        warning("Success");
+        doge_warning("Success");
         user_insert(user);
         close();
     }

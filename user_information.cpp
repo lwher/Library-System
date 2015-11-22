@@ -7,6 +7,8 @@ user_information::user_information(QWidget *parent) :
     ui(new Ui::user_information)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 user_information::~user_information()
@@ -18,7 +20,7 @@ bool user_information::get_user(User &user)
 {
     if(!is_num(ui -> level_edit -> text()))
     {
-        warning("Pealse input number for level");
+        doge_warning("Pealse input number for level");
         return 0;
     }
     user.id = ui -> id_edit -> text();
@@ -35,34 +37,48 @@ void user_information::on_modify_but_clicked()
 {
     User user, tem;
     if(get_user(user))
-        if(search_user_id(tem, user.id) == 0)
+    {
+        int flag = search_user_id(tem, user.id);
+        if(flag == 0)
         {
             if(user.key == make_password(""))
             {
                user.key = tem.key;
             }
+
             if(root.level <= tem.level || root.level <= user.level)
             {
-                warning("Permission Denied");
+                doge_warning("Permission Denied");
                 return;
             }
+            add_user_log(2, root, user);
             user_modify(user);
         }
+        if(flag == 1)
+        {
+            doge_warning("Can't find this Id");
+        }
+    }
 }
 
 void user_information::on_delete_but_clicked()
 {
     QString id = ui -> id_edit -> text();
     User tem;
-
-    if(search_user_id(tem, id) == 0)
+    int flag = search_user_id(tem, id);
+    if(flag == 0)
     {
         if(root.level <= tem.level)
         {
-            warning("Permission Denied");
+            doge_warning("Permission Denied");
             return;
         }
+        add_user_log(1, root, tem);
         user_delete(id);
+    }
+    if(flag == 1)
+    {
+        doge_warning("Can't find this Id");
     }
 
 }
@@ -76,20 +92,28 @@ void user_information::on_insert_but_clicked()
 {
     User user, tem;
     if(get_user(user))
-        if(search_user_id(tem, user.id) == 1)
+    {
+        int flag = search_user_id(tem, user.id);
+        if(flag == 1)
         {
             if(user.key == "")
             {
-                warning("Please input the key");
+                doge_warning("Please input the key");
                 return;
             }
             if(root.level <= user.level)
             {
-                warning("Permission Denied");
+                doge_warning("Permission Denied");
                 return;
             }
+            add_user_log(0, root, user);
             user_insert(user);
         }
+        if(flag == 0)
+        {
+            doge_warning("Id exist");
+        }
+   }
 }
 
 void user_information::on_search_id_but_clicked()
@@ -109,7 +133,6 @@ void user_information::on_search_id_but_clicked()
 
 void user_information::on_search_but_clicked()
 {
-
     QString str = ui -> search_edit -> text();
     int flag, cnt;
     enum type{id, key, name, email, phone, level};
@@ -129,6 +152,4 @@ void user_information::on_search_but_clicked()
         ui -> user_table -> setItem(cnt, 4, new QTableWidgetItem(QString::number(it -> level, 10)));
         ++cnt;
     }
-    //ui -> book_table -> removeRow(3);
-
 }

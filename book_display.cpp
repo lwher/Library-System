@@ -7,6 +7,8 @@ book_display::book_display(QWidget *parent) :
     ui(new Ui::book_display)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 void book_display::get_started(QString str)
