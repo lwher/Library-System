@@ -158,6 +158,16 @@ void book_information::on_insert_but_clicked()
     Book book, tem;
     if(get_book(book))
     {
+        if(book.left > book.total)
+        {
+            doge_warning("The left excceed the total");
+            return;
+        }
+        if(book.id == "")
+        {
+            doge_warning("Please input book's ID");
+            return;
+        }
         int flag = search_book_id(tem,book.id);
         if(flag == 1)
         {

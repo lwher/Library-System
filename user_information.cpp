@@ -111,6 +111,11 @@ void user_information::on_insert_but_clicked()
     User user, tem;
     if(get_user(user))
     {
+        if(user.id == "")
+        {
+            doge_warning("Please input user's ID");
+            return;
+        }
         int flag = search_user_id(tem, user.id);
         if(flag == 1)
         {
