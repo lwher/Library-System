@@ -2,7 +2,11 @@
 
 int event_insert(Event event)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
@@ -33,7 +37,11 @@ int event_insert(Event event)
 
 int event_modify(Event event)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
@@ -63,7 +71,11 @@ int event_modify(Event event)
 
 int event_delete(int id)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
@@ -77,7 +89,11 @@ int event_delete(int id)
 
 int search_event_id(Event &event, QString tem_user_id, QString tem_book_id)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
@@ -120,7 +136,11 @@ int get_max_id()
 
 int event_search(QVector<Event> &event, QString str, int flag)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("Can't find data.db!", 2);

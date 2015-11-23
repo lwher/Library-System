@@ -37,8 +37,12 @@ int max_id()
 
 int add_book_log(int state, User executor, Book book, User opt)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
 
@@ -113,8 +117,12 @@ int add_book_log(int state, User executor, Book book, User opt)
 
 int add_user_log(int state, User executor, User user)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
 
@@ -179,8 +187,12 @@ int add_user_log(int state, User executor, User user)
 
 int select_log_with_usr_id(QVector<QString>& logs, QString id)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
 
@@ -209,8 +221,12 @@ int select_log_with_usr_id(QVector<QString>& logs, QString id)
 
 int select_log_with_book_id(QVector<QString>& logs, QString id)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
 
@@ -246,8 +262,12 @@ int select_log_with_book_id(QVector<QString>& logs, QString id)
 
 int select_log_all(QVector<QString>& logs)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./data/data.db");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("./data.db");
     if(!db.open())
         return warning("can't find data.db!", 2);
 

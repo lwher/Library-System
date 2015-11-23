@@ -15,25 +15,49 @@ modify::~modify()
     delete ui;
 }
 
+void modify :: modify_root(User root)
+{
+    ui -> name_edit -> setText(root.name);
+    ui -> phone_edit -> setText(root.phone);
+    ui -> email_edit -> setText(root.email);
+    show();
+}
+void modify :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void modify :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void modify :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void modify::on_submit_but_clicked()
 {
     User user;
 
     if(make_password(ui -> original_key_edit -> text()) != root.key)
     {
-        warning("Wrong key");
+        doge_warning("Wrong key");
         return;
     }
 
     if(ui -> key_edit -> text() != ui -> confirm_edit -> text())
     {
-        warning("Two password is not the same");
+        doge_warning("Two password is not the same");
         return;
     }
 
     if(ui -> key_edit -> text() == "")
     {
-        warning("Please input the new key");
+        doge_warning("Please input the new key");
         return;
     }
 
@@ -44,14 +68,22 @@ void modify::on_submit_but_clicked()
     user.email = ui -> email_edit -> text();
     if((ui -> admin_edit -> text()) == admin_key)
     {
-        user.level = 1;
+        user.level = std :: max(root.level, 1);
     }
     else
     {
         user.level = root.level;
     }
     user_modify(user);
+    if(root.level == 0 && user.level > 0)
+    {
+        book_window() -> check_root();
+        book_window() -> close();
+        event_window() -> show();
+    }
     root = user;
+    doge_success("modify success");
+    close();
 }
 
 void modify::on_exit_but_clicked()

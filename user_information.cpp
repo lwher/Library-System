@@ -53,6 +53,7 @@ void user_information::on_modify_but_clicked()
             }
             add_user_log(2, root, user);
             user_modify(user);
+            doge_success("Modify Success");
         }
         if(flag == 1)
         {
@@ -60,7 +61,23 @@ void user_information::on_modify_but_clicked()
         }
     }
 }
-
+void user_information :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void user_information :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void user_information :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void user_information::on_delete_but_clicked()
 {
     QString id = ui -> id_edit -> text();
@@ -75,6 +92,7 @@ void user_information::on_delete_but_clicked()
         }
         add_user_log(1, root, tem);
         user_delete(id);
+        doge_success("Delete success");
     }
     if(flag == 1)
     {
@@ -96,7 +114,7 @@ void user_information::on_insert_but_clicked()
         int flag = search_user_id(tem, user.id);
         if(flag == 1)
         {
-            if(user.key == "")
+            if(ui -> key_edit -> text() == "")
             {
                 doge_warning("Please input the key");
                 return;
@@ -108,6 +126,7 @@ void user_information::on_insert_but_clicked()
             }
             add_user_log(0, root, user);
             user_insert(user);
+            doge_success("Insert success");
         }
         if(flag == 0)
         {

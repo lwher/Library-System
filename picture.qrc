@@ -5,8 +5,6 @@
         <file>picture/22332.png</file>
         <file>picture/22333.png</file>
         <file>picture/22334.png</file>
-        <file>picture/登录配图.png</file>
-        <file>picture/注册配图.1.png</file>
         <file>picture/QQ截图20151108145840.png</file>
         <file>picture/框.png</file>
         <file>picture/框2.png</file>
@@ -15,5 +13,9 @@
         <file>picture/doge_success.png</file>
         <file>picture/22.png</file>
         <file>picture/33.png</file>
+        <file>picture/登录配图.png</file>
+        <file>picture/22335.png</file>
+        <file>picture/22336.png</file>
+        <file>picture/22337.png</file>
     </qresource>
 </RCC>

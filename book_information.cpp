@@ -10,11 +10,27 @@ book_information::book_information(QWidget *parent) :
     ui->setupUi(this);
     this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
     setWindowFlags(Qt::FramelessWindowHint);
+    ui -> name_but -> setChecked(true);
 }
 
 book_information::~book_information()
 {
     delete ui;
+}
+void book_information :: check_root()
+{
+    if(root.level)
+    {
+        ui -> book_admin_label ->show();
+        ui -> book_user_label -> hide();
+        ui -> root_name_edit -> hide();
+    }
+    else
+    {
+        ui -> book_admin_label ->hide();
+        ui -> book_user_label -> show();
+        ui -> root_name_edit -> setText("Hello!  " + root.name);
+    }
 }
 
 void book_information::ButtonEnable()
@@ -55,14 +71,14 @@ void book_information::on_search_but_clicked()
     {
         //(*it).printf();
         ui -> book_table -> insertRow(cnt);
-        ui -> book_table -> setItem(cnt, id, new QTableWidgetItem(it -> id));
-        ui -> book_table -> setItem(cnt, ISBN, new QTableWidgetItem(it -> ISBN));
-        ui -> book_table -> setItem(cnt, level, new QTableWidgetItem(QString::number(it -> level, 10)));
-        ui -> book_table -> setItem(cnt, name, new QTableWidgetItem(it -> name));
-        ui -> book_table -> setItem(cnt, author, new QTableWidgetItem(it -> author));
-        ui -> book_table -> setItem(cnt, press, new QTableWidgetItem(it -> press));
-        ui -> book_table -> setItem(cnt, total, new QTableWidgetItem(QString::number(it -> total, 10)));
-        ui -> book_table -> setItem(cnt, left, new QTableWidgetItem(QString::number(it -> left, 10)));
+        ui -> book_table -> setItem(cnt, 0, new QTableWidgetItem(it -> id));
+        ui -> book_table -> setItem(cnt, 1, new QTableWidgetItem(it -> ISBN));
+        ui -> book_table -> setItem(cnt, 2, new QTableWidgetItem(QString::number(it -> level, 10)));
+        ui -> book_table -> setItem(cnt, 3, new QTableWidgetItem(it -> name));
+        ui -> book_table -> setItem(cnt, 4, new QTableWidgetItem(it -> author));
+        ui -> book_table -> setItem(cnt, 5, new QTableWidgetItem(it -> press));
+        ui -> book_table -> setItem(cnt, 6, new QTableWidgetItem(QString::number(it -> total, 10)));
+        ui -> book_table -> setItem(cnt, 7, new QTableWidgetItem(QString::number(it -> left, 10)));
         ++cnt;
     }
     //ui -> book_table -> removeRow(3);
@@ -131,7 +147,10 @@ void book_information::on_delete_but_clicked()
 
 void book_information::on_exit_but_clicked()
 {
-    close();
+    if(root.level == 0)
+        close_all();
+    else
+        close();
 }
 
 void book_information::on_insert_but_clicked()
@@ -152,7 +171,23 @@ void book_information::on_insert_but_clicked()
         }
     }
 }
-
+void book_information :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void book_information :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void book_information :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void book_information::on_search_id_clicked()
 {
     QString id = ui -> search_id_edit -> text();
@@ -173,5 +208,5 @@ void book_information::on_search_id_clicked()
 
 void book_information::on_modify_info_but_clicked()
 {
-    modify_window() -> show();
+    modify_window() -> modify_root(root);
 }

@@ -193,7 +193,7 @@ border-color: rgb(255, 255, 255);</string>
     <string notr="true">font: 75 9pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;管理员密码&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;邀请码&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="name_edit">
@@ -287,14 +287,14 @@ border-color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>350</y>
-     <width>561</width>
-     <height>351</height>
+     <x>220</x>
+     <y>420</y>
+     <width>121</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/picture/22333.png);</string>
+    <string notr="true">border-image: url(:/new/prefix1/picture/22.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -313,12 +313,12 @@ border-color: rgb(255, 255, 255);</string>
   <zorder>label_7</zorder>
   <zorder>key_edit</zorder>
   <zorder>label_12</zorder>
-  <zorder>label_8</zorder>
   <zorder>exit_but</zorder>
   <zorder>email_edit</zorder>
   <zorder>admin_edit</zorder>
   <zorder>submit_but</zorder>
   <zorder>phone_edit</zorder>
+  <zorder>label_8</zorder>
  </widget>
  <resources/>
  <connections/>

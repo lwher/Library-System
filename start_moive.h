@@ -15,6 +15,11 @@ public:
     explicit start_moive(QWidget *parent = 0);
     ~start_moive();
     void work();
+public :
+    QPoint last;
+    void mousePressEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 private:
     Ui::start_moive *ui;
 };

@@ -10,7 +10,23 @@ book_display::book_display(QWidget *parent) :
     this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
     setWindowFlags(Qt::FramelessWindowHint);
 }
-
+void book_display :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void book_display :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void book_display :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void book_display::get_started(QString str)
 {
     Book book;

@@ -6,8 +6,9 @@ Doge::Doge(QWidget *parent) :
     ui(new Ui::Doge)
 {
     ui->setupUi(this);
-    this -> setAttribute(Qt::WA_TranslucentBackground, true);//透明
-    this -> setWindowFlags(Qt::FramelessWindowHint);
+    //this -> setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    //this -> setWindowFlags(Qt::FramelessWindowHint);
+    this -> setWindowFlags(Qt::WindowStaysOnTopHint);
 }
 void Doge :: doge_warning(QString str)
 {

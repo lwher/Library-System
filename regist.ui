@@ -67,7 +67,7 @@
     <string notr="true">font: 75 9pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;管理员密码&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;邀请码&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="admin_edit">
@@ -209,7 +209,7 @@ border-color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="exit_but">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>520</x>
      <y>538</y>
      <width>81</width>
      <height>21</height>
@@ -222,8 +222,8 @@ border-color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="submit_but">
    <property name="geometry">
     <rect>
-     <x>416</x>
-     <y>513</y>
+     <x>430</x>
+     <y>500</y>
      <width>91</width>
      <height>23</height>
     </rect>
@@ -261,11 +261,14 @@ border-color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>390</y>
+     <x>270</x>
+     <y>440</y>
      <width>111</width>
-     <height>211</height>
+     <height>141</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/picture/33.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -274,14 +277,14 @@ border-color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>-20</y>
-     <width>381</width>
-     <height>761</height>
+     <x>320</x>
+     <y>100</y>
+     <width>301</width>
+     <height>471</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/picture/框.png);</string>
+    <string notr="true">border-image: url(:/new/prefix1/picture/框Big.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -292,22 +295,6 @@ border-color: rgb(255, 255, 255);</string>
     <rect>
      <x>430</x>
      <y>120</y>
-     <width>71</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 75 28pt &quot;微软雅黑&quot;;</string>
-   </property>
-   <property name="text">
-    <string>注册</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_11">
-   <property name="geometry">
-    <rect>
-     <x>740</x>
-     <y>60</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -337,7 +324,6 @@ border-color: rgb(255, 255, 255);</string>
   <zorder>submit_but</zorder>
   <zorder>label_9</zorder>
   <zorder>label_10</zorder>
-  <zorder>label_11</zorder>
   <zorder>exit_but</zorder>
  </widget>
  <resources/>

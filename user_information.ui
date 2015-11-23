@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>600</x>
-      <y>160</y>
+      <y>220</y>
       <width>246</width>
       <height>431</height>
      </rect>
@@ -100,7 +100,7 @@
      <item row="5" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>重置密码</string>
+        <string>密码</string>
        </property>
       </widget>
      </item>
@@ -207,8 +207,8 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>160</y>
-      <width>511</width>
+      <y>220</y>
+      <width>521</width>
       <height>431</height>
      </rect>
     </property>
@@ -242,7 +242,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>80</y>
+      <y>140</y>
       <width>821</width>
       <height>541</height>
      </rect>
@@ -258,7 +258,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>100</y>
+      <y>160</y>
       <width>161</width>
       <height>51</height>
      </rect>
@@ -270,33 +270,17 @@
      <string>用户管理</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>60</y>
-      <width>91</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/picture/33.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>640</x>
       <y>40</y>
-      <width>111</width>
-      <height>121</height>
+      <width>301</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/picture/22.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/picture/22332.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -306,7 +290,6 @@
    <zorder>gridLayoutWidget</zorder>
    <zorder>user_table</zorder>
    <zorder>label_12</zorder>
-   <zorder>label_9</zorder>
    <zorder>label_10</zorder>
   </widget>
  </widget>

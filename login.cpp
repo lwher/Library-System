@@ -11,27 +11,46 @@ login::login(QWidget *parent) :
     movie_of_books = new QMovie( "./4.gif" );
     ui -> label_ -> setMovie( movie_of_books );
     movie_of_books -> start();
-    this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
+    setAttribute(Qt::WA_TranslucentBackground, true);//透明
     setWindowFlags(Qt::FramelessWindowHint);
+    setAcceptDrops(true);
 }
 
 login::~login()
 {
     delete ui;
 }
-
+void login :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void login :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void login :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void login::on_log_but_clicked()
 {
     User tem;
     if(search_user_id(tem, ui -> id_edit -> text()) == 0)
     {
         if(make_password(ui -> key_edit -> text()) != tem.key)
-            warning("Wrong key");
+            doge_warning("Wrong key");
         else
         {
+            close();
+            start_moive moive;
+            moive.work();
             root = tem ;
-            //add_user_log(2,tem,tem);
-            //qDebug() << "addlog" << tem.id << endl;
+            book_window() -> check_root();
             if(root.level > 0)
             {
                 book_window() -> ButtonEnable();
@@ -42,17 +61,15 @@ void login::on_log_but_clicked()
                 book_window() -> ButtonDisable();
                 book_window() -> show();
             }
-            close();
         }
     }
     else
-        warning("Id doesn't exist");
+        doge_warning("Id doesn't exist");
 }
 
 void login::on_exit_but_clicked()
 {
-   compress();
-   close();
+   close_all();
 }
 
 void login::on_reg_but_clicked()

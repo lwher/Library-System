@@ -20,7 +20,23 @@ void regist::clear()
 {
 
 }
-
+void regist :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void regist :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void regist :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void regist::on_submit_but_clicked()
 {
     User user, tem;
@@ -39,7 +55,7 @@ void regist::on_submit_but_clicked()
         doge_warning("Id exist");
     else
     {
-        doge_warning("Success");
+        doge_success("Success");
         user_insert(user);
         close();
     }

@@ -13,6 +13,7 @@
 #include <QtSql>
 #include <QTime>
 #include <QMovie>
+#include <QMouseEvent>
 
 #include "event_information.h"
 #include "user_information.h"
@@ -27,6 +28,7 @@
 #include "book_display.h"
 #include "log_display.h"
 #include "doge.h"
+#include "start_moive.h"
 using namespace std;
 
 extern User root;
@@ -51,8 +53,8 @@ extern bool is_num(QString str);
 extern int warning(QString str,int tem = 0);
 
 // database
-extern bool creat_database();
-
+extern bool create_database();
+extern void close_all();
 extern int book_insert(Book book);
 extern int book_modify(Book book);
 extern int book_delete(QString id);

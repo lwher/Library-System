@@ -34,7 +34,11 @@ private slots:
     void on_return_but_clicked();
 
     void on_log_but_clicked();
-
+public :
+    QPoint last;
+    void mousePressEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 private:
     Ui::event_information *ui;
 };

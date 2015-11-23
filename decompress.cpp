@@ -7,9 +7,7 @@ using namespace std;
 
 int decompress()
 {
-    char rar_name[50] = "compression.rar";
-    char order[50] = {"rar.exe e "};
-    strcat(order, rar_name);
-    system(order);
+    system("rar.exe e compression.rar");
+    system("del compression.rar");
     return 0;
 }

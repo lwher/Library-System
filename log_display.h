@@ -23,6 +23,11 @@ private slots:
     void on_all_search_but_clicked();
 
     void on_book_id_search_but_clicked();
+public :
+    QPoint last;
+    void mousePressEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 
 private:
     Ui::log_display *ui;

@@ -35,7 +35,13 @@ private slots:
 private:
     Ui::book_information *ui;
 
+public :
+    QPoint last;
+    void mousePressEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 public:
+    void check_root();
     void ButtonEnable();
     void ButtonDisable();
     void SetSearchText(QString);

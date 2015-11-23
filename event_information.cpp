@@ -8,13 +8,31 @@ event_information::event_information(QWidget *parent) :
     ui->setupUi(this);
     this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
     setWindowFlags(Qt::FramelessWindowHint);
+    ui -> root_name_edit -> setText("Hello!  " + root.name);
+    ui -> user_name_but -> setChecked(true);
 }
 
 event_information::~event_information()
 {
     delete ui;
 }
-
+void event_information :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void event_information :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void event_information :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void event_information::on_insert_but_clicked()
 {
     QString user_id = ui -> user_id_edit -> text();
@@ -163,11 +181,7 @@ void event_information::on_book_id_search_but_clicked()
 
 void event_information::on_exit_but_clicked()
 {
-    compress();
-    modify_window() -> close();
-    user_window() -> close();
-    book_window() -> close();
-    close();
+    close_all();
 }
 
 void event_information::on_book_info_but_clicked()
@@ -182,7 +196,7 @@ void event_information::on_user_info_but_clicked()
 
 void event_information::on_modify_but_clicked()
 {
-     modify_window() -> show();
+     modify_window() -> modify_root(root);
 }
 
 void event_information::on_log_but_clicked()

@@ -21,7 +21,23 @@ void log_display::on_exit_but_clicked()
 {
     close();
 }
-
+void log_display :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void log_display :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void log_display :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void log_display::on_user_id_search_but_clicked()
 {
     QString Uid = ui -> user_id_edit -> text();

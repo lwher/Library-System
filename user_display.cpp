@@ -16,7 +16,23 @@ user_display::~user_display()
     delete ui;
 }
 
-
+void user_display :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void user_display :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void user_display :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void user_display::get_started(QString Str)
 {
     User user;

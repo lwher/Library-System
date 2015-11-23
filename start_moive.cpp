@@ -14,7 +14,23 @@ start_moive::~start_moive()
 {
     delete ui;
 }
-
+void start_moive :: mousePressEvent(QMouseEvent *e)
+{
+    last = e -> globalPos();
+}
+void start_moive :: mouseMoveEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    last = e -> globalPos();
+    move(x() + dx, y() + dy);
+}
+void start_moive :: mouseReleaseEvent(QMouseEvent *e)
+{
+    int dx = e -> globalX() - last.x();
+    int dy = e -> globalY() - last.y();
+    move(x() + dx, y() + dy);
+}
 void start_moive :: work()
 {
     show();

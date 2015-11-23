@@ -31,6 +31,11 @@ private slots:
     void on_search_but_clicked();
 
     void on_search_id_but_clicked();
+public :
+    QPoint last;
+    void mousePressEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 
 private:
     Ui::user_information *ui;

@@ -23,6 +23,19 @@ book_display* book_display_window(){ static book_display tem; return &tem;}
 
 log_display* log_display_window(){ static log_display tem; return &tem;}
 
+void close_all()
+{
+    compress();
+    login_window() -> close();
+    modify_window() -> close();
+    regist_window() -> close();
+    user_window() -> close();
+    book_window() -> close();
+    event_window() -> close();
+    user_display_window() -> close();
+    book_display_window() -> close();
+    log_display_window() -> close();
+}
 
 bool is_num(QString str) { bool ok; str.toInt(&ok); return ok;}
 
@@ -50,10 +63,14 @@ void doge_success(QString str)
     tem.doge_success(str);
 }
 
-bool creat_database()
+bool create_database()
 {
     decompress();
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("qt_sql_default_connection"))
+        db = QSqlDatabase::database("qt_sql_default_connection");
+    else
+        db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./data.db");
     if(!db.open())
         return false;
@@ -110,13 +127,13 @@ bool creat_database()
 
     // add administrator
     User admin;
-    if(search_user_id(admin, "admin") == 1)
+    if(search_user_id(admin, "doge") == 1)
     {
-        admin.id = "admin";
-        admin.key = make_password("admin");
-        admin.email = "lwher1996@sjtu.edu.cn";
-        admin.name = "admin";
-        admin.phone = "12345678901";
+        admin.id = "doge";
+        admin.key = make_password("doge");
+        admin.email = "doge_biu_biu_boom@sjtu.edu.cn";
+        admin.name = "doge";
+        admin.phone = "call me doge";
         admin.level = 2;
         user_insert(admin);
     }
