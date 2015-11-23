@@ -158,7 +158,7 @@ void event_information::on_user_id_search_but_clicked()
     }
     if(flag == 1)
     {
-        doge_warning("Can't find this Id");
+        doge_warning("Can't find this ID");
     }
 }
 
@@ -174,7 +174,7 @@ void event_information::on_book_id_search_but_clicked()
     }
     if(flag == 1)
     {
-        doge_warning("Can't find this Id");
+        doge_warning("Can't find this ID");
     }
 
 }

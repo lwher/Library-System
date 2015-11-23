@@ -140,10 +140,10 @@ int add_user_log(int state, User executor, User user)
         state_str = "added a user : ";
         break;
     case 1:
-        state_str = "deleted a book : ";
+        state_str = "deleted a user : ";
         break;
     case 2:
-        state_str = "modified a book : ";
+        state_str = "modified a user : ";
         break;
     default:
         break;

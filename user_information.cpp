@@ -57,7 +57,7 @@ void user_information::on_modify_but_clicked()
         }
         if(flag == 1)
         {
-            doge_warning("Can't find this Id");
+            doge_warning("Can't find this ID");
         }
     }
 }
@@ -96,7 +96,7 @@ void user_information::on_delete_but_clicked()
     }
     if(flag == 1)
     {
-        doge_warning("Can't find this Id");
+        doge_warning("Can't find this ID");
     }
 
 }
@@ -147,6 +147,10 @@ void user_information::on_search_id_but_clicked()
         ui -> email_edit -> setText(user.email);
         ui -> phone_edit -> setText(user.phone);
         ui -> level_edit -> setText(QString :: number(user.level));
+    }
+    else
+    {
+        doge_warning("Can't find this ID");
     }
 }
 

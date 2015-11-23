@@ -204,6 +204,10 @@ void book_information::on_search_id_clicked()
         ui -> total_edit -> setText(QString :: number(book.total));
         ui -> left_edit -> setText(QString :: number(book.left));
     }
+    else
+    {
+        doge_warning("Can't find this ID");
+    }
 }
 
 void book_information::on_modify_info_but_clicked()
