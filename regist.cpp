@@ -40,6 +40,16 @@ void regist :: mouseReleaseEvent(QMouseEvent *e)
 void regist::on_submit_but_clicked()
 {
     User user, tem;
+    if(ui -> id_edit -> text() == "")
+    {
+        doge_warning("Please input the ID");
+        return;
+    }
+    if(ui -> key_edit -> text() == "")
+    {
+        doge_warning("Please input the key");
+        return;
+    }
     if(ui -> key_edit -> text() != ui -> confirm_edit -> text())
     {
         doge_warning("Two password is not the same");
