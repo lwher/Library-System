@@ -32,6 +32,8 @@ private slots:
 
     void on_modify_info_but_clicked();
 
+    void on_logout_clicked();
+
 private:
     Ui::book_information *ui;
 

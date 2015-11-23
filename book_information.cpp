@@ -24,12 +24,14 @@ void book_information :: check_root()
         ui -> book_admin_label ->show();
         ui -> book_user_label -> hide();
         ui -> root_name_edit -> hide();
+        ui -> logout -> hide();
     }
     else
     {
         ui -> book_admin_label ->hide();
         ui -> book_user_label -> show();
         ui -> root_name_edit -> setText("Hello!  " + root.name);
+        ui -> logout -> show();
     }
 }
 
@@ -223,4 +225,10 @@ void book_information::on_search_id_clicked()
 void book_information::on_modify_info_but_clicked()
 {
     modify_window() -> modify_root(root);
+}
+
+void book_information::on_logout_clicked()
+{
+    close_window();
+    login_window() -> show();
 }

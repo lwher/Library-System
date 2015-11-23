@@ -37,6 +37,19 @@ void close_all()
     log_display_window() -> close();
 }
 
+void close_window()
+{
+    login_window() -> close();
+    modify_window() -> close();
+    regist_window() -> close();
+    user_window() -> close();
+    book_window() -> close();
+    event_window() -> close();
+    user_display_window() -> close();
+    book_display_window() -> close();
+    log_display_window() -> close();
+}
+
 bool is_num(QString str) { bool ok; str.toInt(&ok); return ok;}
 
 QString get_time()

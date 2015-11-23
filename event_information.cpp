@@ -203,3 +203,9 @@ void event_information::on_log_but_clicked()
 {
     log_display_window() -> show();
 }
+
+void event_information::on_logout_but_clicked()
+{
+    close_window();
+    login_window() -> show();
+}

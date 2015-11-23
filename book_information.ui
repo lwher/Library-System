@@ -19,7 +19,7 @@
      <rect>
       <x>950</x>
       <y>190</y>
-      <width>247</width>
+      <width>252</width>
       <height>521</height>
      </rect>
     </property>
@@ -48,6 +48,13 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="logout">
+         <property name="text">
+          <string>注销</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="exit_but">

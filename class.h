@@ -55,6 +55,7 @@ extern int warning(QString str,int tem = 0);
 // database
 extern bool create_database();
 extern void close_all();
+extern void close_window();
 extern int book_insert(Book book);
 extern int book_modify(Book book);
 extern int book_delete(QString id);
