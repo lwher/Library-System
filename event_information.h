@@ -37,6 +37,8 @@ private slots:
 
     void on_logout_but_clicked();
 
+    void on_borrow_but_clicked();
+
 public :
     QPoint last;
     void mousePressEvent(QMouseEvent *e);

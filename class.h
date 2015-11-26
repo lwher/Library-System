@@ -29,11 +29,12 @@
 #include "log_display.h"
 #include "doge.h"
 #include "start_moive.h"
+#include "borrow_book.h"
 using namespace std;
 
 extern User root;
 extern QString admin_key;
-
+extern Borrow_book* borrow_window();
 extern login* login_window();
 extern modify* modify_window();
 extern regist* regist_window();

@@ -9,6 +9,7 @@ user_information::user_information(QWidget *parent) :
     ui->setupUi(this);
     this->setAttribute(Qt::WA_TranslucentBackground, true);//透明
     setWindowFlags(Qt::FramelessWindowHint);
+    ui -> user_id_but -> setChecked(true);
 }
 
 user_information::~user_information()
@@ -164,7 +165,8 @@ void user_information::on_search_but_clicked()
     QString str = ui -> search_edit -> text();
     int flag, cnt;
     enum type{id, key, name, email, phone, level};
-    flag = name;
+    if(ui -> user_id_but -> isChecked()) flag = id;
+    if(ui -> user_name_but -> isChecked()) flag = name;
     QVector <User> user;
     user_search(user, str, flag);
     while(cnt = ui -> user_table -> rowCount())

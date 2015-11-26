@@ -22,6 +22,7 @@ void book_information :: check_root()
     if(root.level)
     {
         ui -> book_admin_label ->show();
+        ui -> borrow_but -> hide();
         ui -> book_user_label -> hide();
         ui -> root_name_edit -> hide();
         ui -> logout -> hide();
@@ -29,6 +30,7 @@ void book_information :: check_root()
     else
     {
         ui -> book_admin_label ->hide();
+        ui -> borrow_but -> show();
         ui -> book_user_label -> show();
         ui -> root_name_edit -> setText("Hello!  " + root.name);
         ui -> logout -> show();
@@ -231,4 +233,9 @@ void book_information::on_logout_clicked()
 {
     close_window();
     login_window() -> show();
+}
+
+void book_information::on_borrow_but_clicked()
+{
+    borrow_window() -> work();
 }

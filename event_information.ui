@@ -24,72 +24,22 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="11" column="0">
-      <widget class="QPushButton" name="log_but">
+     <item row="16" column="1">
+      <widget class="QPushButton" name="exit_but">
        <property name="text">
-        <string>日志</string>
+        <string>退出</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
-      <widget class="QPushButton" name="modify_but">
+     <item row="7" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout"/>
+     </item>
+     <item row="13" column="0">
+      <widget class="QPushButton" name="user_info_but">
        <property name="text">
-        <string>修改个人信息</string>
+        <string>用户管理</string>
        </property>
       </widget>
-     </item>
-     <item row="1" column="0" colspan="2">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="1">
-        <widget class="QRadioButton" name="user_name_but">
-         <property name="text">
-          <string>用户名</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QRadioButton" name="book_name_but">
-         <property name="text">
-          <string>书名</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QRadioButton" name="book_id_but">
-         <property name="text">
-          <string>书号</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QRadioButton" name="user_id_but">
-         <property name="text">
-          <string>帐号</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="12" column="1">
-      <widget class="QPushButton" name="book_info_but">
-       <property name="text">
-        <string>书籍管理</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QLineEdit" name="search_edit"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="search_but">
-         <property name="text">
-          <string>搜索</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </item>
      <item row="10" column="1">
       <spacer name="verticalSpacer">
@@ -132,21 +82,71 @@
       </layout>
      </item>
      <item row="12" column="0">
-      <widget class="QPushButton" name="user_info_but">
+      <widget class="QPushButton" name="log_but">
        <property name="text">
-        <string>用户管理</string>
+        <string>日志</string>
        </property>
       </widget>
      </item>
-     <item row="15" column="1">
-      <widget class="QPushButton" name="exit_but">
+     <item row="1" column="0" colspan="2">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1">
+        <widget class="QRadioButton" name="user_name_but">
+         <property name="text">
+          <string>用户名</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QRadioButton" name="book_name_but">
+         <property name="text">
+          <string>书名</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="book_id_but">
+         <property name="text">
+          <string>书号</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="user_id_but">
+         <property name="text">
+          <string>帐号</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="13" column="1">
+      <widget class="QPushButton" name="book_info_but">
        <property name="text">
-        <string>退出</string>
+        <string>书籍管理</string>
        </property>
       </widget>
      </item>
-     <item row="7" column="0" colspan="2">
-      <layout class="QHBoxLayout" name="horizontalLayout"/>
+     <item row="12" column="1">
+      <widget class="QPushButton" name="modify_but">
+       <property name="text">
+        <string>修改个人信息</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLineEdit" name="search_edit"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="search_but">
+         <property name="text">
+          <string>搜索</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item row="3" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -189,10 +189,17 @@
        </property>
       </widget>
      </item>
-     <item row="15" column="0">
+     <item row="16" column="0">
       <widget class="QPushButton" name="logout_but">
        <property name="text">
         <string>注销</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QPushButton" name="borrow_but">
+       <property name="text">
+        <string>我的借阅</string>
        </property>
       </widget>
      </item>

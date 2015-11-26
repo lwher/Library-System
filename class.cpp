@@ -23,6 +23,7 @@ book_display* book_display_window(){ static book_display tem; return &tem;}
 
 log_display* log_display_window(){ static log_display tem; return &tem;}
 
+Borrow_book* borrow_window(){ static Borrow_book tem; return &tem;}
 void close_all()
 {
     compress();

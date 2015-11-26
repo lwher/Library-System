@@ -35,7 +35,7 @@
     </rect>
    </property>
    <property name="echoMode">
-    <enum>QLineEdit::Normal</enum>
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -256,6 +256,9 @@ border-color: rgb(255, 255, 255);</string>
      <width>133</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">

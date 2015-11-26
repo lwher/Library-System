@@ -267,6 +267,13 @@
        </property>
       </widget>
      </item>
+     <item row="18" column="1">
+      <widget class="QPushButton" name="borrow_but">
+       <property name="text">
+        <string>我的借阅</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QTableWidget" name="book_table">

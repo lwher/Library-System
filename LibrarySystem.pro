@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     start_moive.cpp \
     decompress.cpp \
     compress.cpp \
-    doge.cpp
+    doge.cpp \
+    borrow_book.cpp
 
 HEADERS  += login.h \
     class.h \
@@ -47,7 +48,8 @@ HEADERS  += login.h \
     book_display.h \
     log_display.h \
     start_moive.h \
-    doge.h
+    doge.h \
+    borrow_book.h
 
 FORMS    += login.ui \
     regist.ui \
@@ -59,7 +61,8 @@ FORMS    += login.ui \
     book_display.ui \
     log_display.ui \
     start_moive.ui \
-    doge.ui
+    doge.ui \
+    borrow_book.ui
 
 RESOURCES += \
     picture.qrc

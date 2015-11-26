@@ -45,7 +45,7 @@ void log_display::on_user_id_search_but_clicked()
     logs.clear();
     select_log_with_usr_id(logs, Uid);
     QString Text="";
-    for(QVector <QString>  :: iterator it = logs.begin(); it != logs.end(); ++it)
+    for(QVector <QString>  :: iterator it = logs.end() - 1; it != logs.begin() - 1; --it)
     {
         Text+=(*it);
         Text+="\n";
@@ -59,7 +59,7 @@ void log_display::on_all_search_but_clicked()
     logs.clear();
     select_log_all(logs);
     QString Text="";
-    for(QVector <QString>  :: iterator it = logs.begin(); it != logs.end(); ++it)
+    for(QVector <QString>  :: iterator it = logs.end() - 1; it != logs.begin() - 1; --it)
     {
         Text+=(*it);
         Text+="\n";
@@ -73,7 +73,7 @@ void log_display::on_book_id_search_but_clicked()
     logs.clear();
     select_log_with_book_id(logs, Uid);
     QString Text="";
-    for(QVector <QString>  :: iterator it = logs.begin(); it != logs.end(); ++it)
+    for(QVector <QString>  :: iterator it = logs.end() - 1; it != logs.begin() - 1; --it)
     {
         Text+=(*it);
         Text+="\n";

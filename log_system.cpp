@@ -96,7 +96,7 @@ int add_book_log(int state, User executor, Book book, User opt)
     query.bindValue(":exe_name", executor.name);
     query.bindValue(":usr_id", book.id);
     query.bindValue(":usr_name", book.name);
-    query.bindValue(":opt", opt.name);
+    query.bindValue(":opt", opt.id);
     query.bindValue(":TM", TM);
 
     if(!query.exec())
@@ -169,7 +169,7 @@ int add_user_log(int state, User executor, User user)
     query.bindValue(":exe_name", executor.name);
     query.bindValue(":usr_id", user.id);
     query.bindValue(":usr_name", user.name);
-    query.bindValue(":opt", executor.name);
+    query.bindValue(":opt", executor.id);
     query.bindValue(":TM", TM);
 
     if(!query.exec())
@@ -197,7 +197,7 @@ int select_log_with_usr_id(QVector<QString>& logs, QString id)
         return warning("can't find data.db!", 2);
 
     QSqlQuery query;
-    query.prepare("select * from log where exe_id like :id");
+    query.prepare("select * from log where opt like :id");
     query.bindValue(":id", id);
     query.exec();
 
@@ -207,12 +207,12 @@ int select_log_with_usr_id(QVector<QString>& logs, QString id)
     {
         QString log = "";
         log += query.value(7).toString();
-        log += query.value(3).toString();
-        log += " through ";
         log += query.value(6).toString();
+        log += " through ";
+        log += query.value(3).toString();
         log += " ";
         log += query.value(1).toString();
-        log += query.value(5).toString();
+        log += query.value(4).toString();
         log += ".";
         logs.push_back(log);
     }
@@ -241,12 +241,12 @@ int select_log_with_book_id(QVector<QString>& logs, QString id)
     {
         QString log = "";
         log += query.value(7).toString();
-        log += query.value(3).toString();
-        log += " through ";
         log += query.value(6).toString();
+        log += " through ";
+        log += query.value(3).toString();
         log += " ";
         log += query.value(1).toString();
-        log += query.value(5).toString();
+        log += query.value(4).toString();
         log += ".";
         logs.push_back(log);
     }
@@ -281,12 +281,12 @@ int select_log_all(QVector<QString>& logs)
     {
         QString log = "";
         log += query.value(7).toString();
-        log += query.value(3).toString();
+        log += query.value(6).toString();
         log += " through ";
-        log +=  query.value(6).toString();
+        log +=  query.value(3).toString();
         log += " ";
         log += query.value(1).toString();
-        log += query.value(5).toString();
+        log += query.value(4).toString();
         log += ".";
         logs.push_back(log);
     }

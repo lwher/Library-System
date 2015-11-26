@@ -186,6 +186,7 @@ void event_information::on_exit_but_clicked()
 
 void event_information::on_book_info_but_clicked()
 {
+    book_window() -> check_root();
     book_window() -> show();
 }
 
@@ -208,4 +209,9 @@ void event_information::on_logout_but_clicked()
 {
     close_window();
     login_window() -> show();
+}
+
+void event_information::on_borrow_but_clicked()
+{
+    borrow_window() -> work();
 }
