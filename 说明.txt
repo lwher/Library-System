@@ -2,6 +2,3 @@
 ID:doge
 Password:doge
 邀请码:dogeisgood
-
-Output内部有可执行文件:
-LibrarySystem.exe

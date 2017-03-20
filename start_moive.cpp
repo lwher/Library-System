@@ -36,7 +36,7 @@ void start_moive :: work()
     show();
     QTime time;
     QMovie *movie;
-    movie = new QMovie( "./2.gif" );
+    movie = new QMovie( "../2.gif" );
     ui -> label -> setMovie( movie );
     movie -> start();
     time.start();

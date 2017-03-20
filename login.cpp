@@ -8,7 +8,7 @@ login::login(QWidget *parent) :
 {
     ui->setupUi(this);
     QMovie *movie_of_books;
-    movie_of_books = new QMovie( "./4.gif" );
+    movie_of_books = new QMovie( "../4.gif" );
     ui -> label_ -> setMovie( movie_of_books );
     movie_of_books -> start();
     setAttribute(Qt::WA_TranslucentBackground, true);//透明

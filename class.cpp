@@ -26,7 +26,7 @@ log_display* log_display_window(){ static log_display tem; return &tem;}
 Borrow_book* borrow_window(){ static Borrow_book tem; return &tem;}
 void close_all()
 {
-    compress();
+    //compress();
     login_window() -> close();
     modify_window() -> close();
     regist_window() -> close();
@@ -79,7 +79,7 @@ void doge_success(QString str)
 
 bool create_database()
 {
-    decompress();
+    //decompress();
     QSqlDatabase db;
     if(QSqlDatabase::contains("qt_sql_default_connection"))
         db = QSqlDatabase::database("qt_sql_default_connection");
